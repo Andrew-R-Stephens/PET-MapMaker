@@ -1,0 +1,671 @@
+JFDML JFormDesigner: "8.1.1.0.298" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"$sizePolicy": 2
+			"alwaysOnTop": true
+			"title": "PET Map Maker"
+			"visible": true
+			"font": new java.awt.Font( "JetBrains Mono", 0, 12 )
+			auxiliary() {
+				"JavaCodeGenerator.postInitCode": ";"
+			}
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 8, 0, 8, 8 )
+				"minimumSize": new java.awt.Dimension( 0, 0 )
+				"foreground": new java.awt.Color( 51, 102, 0, 255 )
+				"background": new java.awt.Color( 51, 51, 51, 255 )
+				"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": &Font0 new java.awt.Font( "JetBrains Mono", 0, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+					"axis": 1
+				} ) {
+					name: "buttonPanel"
+					"font": new java.awt.Font( "JetBrains Mono", 0, 12 )
+					"background": new java.awt.Color( 51, 51, 51, 255 )
+					"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+					"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"maximumSize": new java.awt.Dimension( 356, 20000 )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"hgap": 16
+					} ) {
+						name: "panel16"
+						"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 0, 0, 0, 8 )
+						"opaque": false
+						"font": &Font1 new java.awt.Font( "JetBrains Mono", 0, 12 )
+						"background": &Color0 new java.awt.Color( 51, 51, 51, 255 )
+						"foreground": sfield java.awt.Color white
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField_mapName"
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"border": new javax.swing.border.TitledBorder( null, "Map Name", 4, 0, &Font2 new java.awt.Font( "JetBrains Mono", 1, 12 ), sfield java.awt.Color lightGray )
+							"margin": &Insets0 new java.awt.Insets( 8, 0, 0, 0 )
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"background": &Color1 new java.awt.Color( 51, 51, 51, 255 )
+							"foreground": sfield java.awt.Color white
+							"font": #Font1
+							"selectedTextColor": sfield java.awt.Color white
+							"selectionColor": &Color2 new java.awt.Color( 0, 0, 0, 255 )
+							"cursor": &Cursor0 new java.awt.Cursor( 2 )
+							auxiliary() {
+								"JavaCodeGenerator.variableGetter": true
+							}
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 2
+					} ) {
+						name: "floorLabelPanel"
+						"background": new java.awt.Color( 238, 238, 238, 0 )
+						"opaque": false
+						"border": new javax.swing.border.EmptyBorder( 8, 5, 8, 5 )
+						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"font": #Font0
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "floorLabel"
+							"text": "Floor"
+							"font": &Font3 new java.awt.Font( "JetBrains Mono", 0, 20 )
+							"horizontalAlignment": 0
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"horizontalTextPosition": 0
+							"foreground": &Color3 new java.awt.Color( 255, 255, 255, 255 )
+							"background": &Color4 new java.awt.Color( 238, 238, 238, 0 )
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"focusable": false
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+						"hgap": 32
+					} ) {
+						name: "panel3"
+						"opaque": false
+						"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+						"border": &EmptyBorder1 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+						"background": new java.awt.Color( 102, 102, 102, 255 )
+						"font": #Font0
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button_addFloor"
+							"text": "Add Floor"
+							"font": &Font4 new java.awt.Font( "JetBrains Mono", 0, 14 )
+							"foreground": new java.awt.Color( 255, 255, 255, 255 )
+							"background": &Color5 new java.awt.Color( 0, 102, 0, 255 )
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"horizontalAlignment": 10
+							"cursor": &Cursor1 new java.awt.Cursor( 12 )
+							"focusable": false
+							auxiliary() {
+								"JavaCodeGenerator.variableGetter": true
+							}
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button_removeFloor"
+							"text": "Remove Floor"
+							"font": #Font4
+							"foreground": &Color6 new java.awt.Color( 255, 255, 255, 255 )
+							"background": &Color7 new java.awt.Color( 102, 0, 0, 255 )
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"cursor": #Cursor1
+							"focusable": false
+							auxiliary() {
+								"JavaCodeGenerator.variableGetter": true
+							}
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "floorsPanel"
+						"background": &Color8 new java.awt.Color( 238, 238, 238, 0 )
+						"border": new javax.swing.border.EmptyBorder( 0, 0, 16, 0 )
+						"font": #Font0
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"columns": 2
+							"hgap": 32
+						} ) {
+							name: "panel6"
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"border": new javax.swing.border.TitledBorder( null, "Floor Layer", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+							"background": new java.awt.Color( 51, 51, 51, 255 )
+							"font": #Font0
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) ) {
+								name: "panel14"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+								"border": &EmptyBorder2 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+								"background": &Color9 new java.awt.Color( 51, 51, 51, 255 )
+								"foreground": sfield java.awt.Color white
+								"font": #Font0
+								add( new FormComponent( "models.FloorTypeComboBox" ) {
+									name: "comboBox_floorTypes"
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"border": new javax.swing.border.TitledBorder( new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Level", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"background": &Color10 new java.awt.Color( 51, 51, 51, 255 )
+									"foreground": sfield java.awt.Color white
+									"font": #Font0
+									"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+									"cursor": #Cursor1
+									auxiliary() {
+										"JavaCodeGenerator.variableGetter": true
+										"JavaCodeGenerator.typeParameters": "String"
+									}
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+								"axis": 1
+							} ) {
+								name: "panel11"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+								"border": #EmptyBorder2
+								"background": #Color9
+								"foreground": sfield java.awt.Color white
+								"font": #Font0
+								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+									"hgap": 32
+									"columns": 2
+								} ) {
+									name: "panel13"
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+									"border": new javax.swing.border.TitledBorder( new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Move Layer", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+									"background": #Color9
+									"foreground": sfield java.awt.Color white
+									"font": #Font0
+									add( new FormComponent( "javax.swing.JButton" ) {
+										name: "button_floorDecrement"
+										"text": "<-"
+										"font": &Font5 new java.awt.Font( "JetBrains Mono", 0, 12 )
+										"background": &Color11 new java.awt.Color( 243, 243, 243, 255 )
+										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"foreground": sfield java.awt.Color black
+										"cursor": #Cursor1
+										"focusable": false
+										"horizontalAlignment": 2
+										"alignmentX": 0.5f
+										auxiliary() {
+											"JavaCodeGenerator.variableGetter": true
+										}
+									} )
+									add( new FormComponent( "javax.swing.JButton" ) {
+										name: "button_floorIncrement"
+										"text": "->"
+										"font": #Font5
+										"background": #Color11
+										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+										"foreground": sfield java.awt.Color black
+										"cursor": #Cursor1
+										"focusable": false
+										"horizontalAlignment": 4
+										"alignmentX": 0.5f
+										auxiliary() {
+											"JavaCodeGenerator.variableGetter": true
+										}
+									} )
+								} )
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"hgap": 16
+						} ) {
+							name: "panel17"
+							"border": #EmptyBorder0
+							"opaque": false
+							"font": #Font1
+							"background": #Color0
+							"foreground": sfield java.awt.Color white
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "textField_floorName"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"border": new javax.swing.border.TitledBorder( null, "Floor Name", 4, 0, #Font2, sfield java.awt.Color lightGray )
+								"margin": #Insets0
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"background": #Color1
+								"foreground": sfield java.awt.Color white
+								"font": #Font1
+								"selectedTextColor": sfield java.awt.Color white
+								"selectionColor": #Color2
+								"cursor": #Cursor0
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"columns": 2
+							"hgap": 32
+						} ) {
+							name: "panel4"
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"border": new javax.swing.border.EmptyBorder( 16, 8, 0, 8 )
+							"background": new java.awt.Color( 51, 51, 51, 255 )
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JComboBox" ) {
+								name: "comboBox_floorImage"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"border": new javax.swing.border.TitledBorder( new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Floor Image", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"background": #Color10
+								"foreground": sfield java.awt.Color white
+								"font": #Font0
+								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+								"cursor": #Cursor1
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JSeparator" ) {
+						name: "separator1"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 2
+					} ) {
+						name: "roomsLabelPanel"
+						"background": new java.awt.Color( 51, 51, 51, 255 )
+						"border": new javax.swing.border.EmptyBorder( 16, 5, 8, 5 )
+						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"font": #Font0
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "roomLabel"
+							"text": "Room"
+							"font": #Font3
+							"horizontalAlignment": 0
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"horizontalTextPosition": 0
+							"foreground": #Color3
+							"background": #Color4
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+						"axis": 1
+					} ) {
+						name: "roomsPanel"
+						"background": #Color8
+						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"font": #Font0
+						"border": new javax.swing.border.EmptyBorder( 8, 8, 8, 8 )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+							"hgap": 32
+						} ) {
+							name: "panel2"
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+							"border": #EmptyBorder1
+							"background": #Color9
+							"foreground": sfield java.awt.Color white
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "button_addRoom"
+								"text": "Add Room"
+								"font": #Font4
+								"background": #Color5
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"foreground": sfield java.awt.Color white
+								"cursor": #Cursor1
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "button_removeRoom"
+								"text": "Remove Room"
+								"font": #Font4
+								"foreground": #Color6
+								"background": #Color7
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"margin": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"cursor": #Cursor1
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+							name: "panel5"
+							"opaque": false
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"border": new javax.swing.border.EmptyBorder( 16, 0, 16, 0 )
+							"font": #Font0
+							add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+								name: "scrollPane1"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"opaque": false
+								"background": new java.awt.Color( 238, 238, 238, 0 )
+								"viewportBorder": new javax.swing.border.TitledBorder( null, "Available Rooms", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+								"font": #Font0
+								"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+								add( new FormComponent( "javax.swing.JList" ) {
+									name: "scrollView_roomList"
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"background": sfield java.awt.Color lightGray
+									"selectionMode": 0
+									"visibleRowCount": 10
+									"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+									"font": new java.awt.Font( "JetBrains Mono", 0, 14 )
+									"selectionBackground": sfield java.awt.Color darkGray
+									"selectionForeground": new java.awt.Color( 255, 255, 255, 255 )
+									"name": "Recorded Rooms"
+									"fixedCellHeight": 20
+									"cursor": #Cursor1
+									auxiliary() {
+										"JavaCodeGenerator.variableGetter": true
+										"JavaCodeGenerator.typeParameters": "String"
+									}
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"hgap": 16
+						} ) {
+							name: "panel8"
+							"border": #EmptyBorder0
+							"opaque": false
+							"font": #Font1
+							"background": #Color0
+							"foreground": sfield java.awt.Color white
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "textField_roomName"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"border": new javax.swing.border.TitledBorder( null, "Room Name", 4, 0, #Font2, sfield java.awt.Color lightGray )
+								"margin": #Insets0
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"background": #Color1
+								"foreground": sfield java.awt.Color white
+								"font": #Font1
+								"selectedTextColor": sfield java.awt.Color white
+								"selectionColor": #Color2
+								"cursor": #Cursor0
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+							add( new FormComponent( "javax.swing.JSpinner" ) {
+								name: "textField_roomID"
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"border": new javax.swing.border.TitledBorder( null, "Room ID", 4, 0, #Font2, sfield java.awt.Color lightGray )
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"background": #Color1
+								"foreground": sfield java.awt.Color white
+								"font": #Font1
+								auxiliary() {
+									"JavaCodeGenerator.variableGetter": true
+								}
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"rows": 2
+						} ) {
+							name: "panel10"
+							"border": new javax.swing.border.TitledBorder( null, "Room Points", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+							"opaque": false
+							"font": #Font3
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+								name: "panel7"
+								"border": &EmptyBorder3 new javax.swing.border.EmptyBorder( 8, 0, 8, 0 )
+								"opaque": false
+								"font": #Font3
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								add( new FormComponent( "views.RoomSpinner" ) {
+									name: "spinner_points"
+									"border": new javax.swing.border.TitledBorder( &EmptyBorder4 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Point", 4, 0, &Font6 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+									"background": &Color12 new java.awt.Color( 51, 51, 51, 255 )
+									"foreground": sfield java.awt.Color white
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"font": #Font1
+									"cursor": #Cursor1
+									"focusable": false
+									auxiliary() {
+										"JavaCodeGenerator.variableGetter": true
+									}
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+								name: "panel9"
+								"border": #EmptyBorder3
+								"opaque": false
+								"font": #Font3
+								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+								add( new FormComponent( "views.RoomSpinner" ) {
+									name: "spinner_x"
+									"border": new javax.swing.border.TitledBorder( #EmptyBorder4, "X", 4, 0, #Font6, sfield java.awt.Color lightGray )
+									"background": #Color12
+									"foreground": sfield java.awt.Color white
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"font": #Font1
+									"cursor": #Cursor1
+									"focusable": false
+									auxiliary() {
+										"JavaCodeGenerator.variableGetter": true
+									}
+								} )
+								add( new FormComponent( "views.RoomSpinner" ) {
+									name: "spinner_y"
+									"border": new javax.swing.border.TitledBorder( #EmptyBorder4, "Y", 4, 0, #Font6, sfield java.awt.Color lightGray )
+									"background": #Color12
+									"foreground": sfield java.awt.Color white
+									"model": new javax.swing.SpinnerNumberModel
+									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+									"font": #Font1
+									"cursor": #Cursor1
+									"focusable": false
+									auxiliary() {
+										"JavaCodeGenerator.variableGetter": true
+									}
+								} )
+							} )
+						} )
+					} )
+				} )
+				add( new FormComponent( "views.MapImageViewPanel" ) {
+					name: "mapViewPanel"
+					"background": new java.awt.Color( 204, 204, 204, 255 )
+					"font": #Font1
+					"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"preferredSize": new java.awt.Dimension( 1000, 592 )
+					"cursor": new java.awt.Cursor( 1 )
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"background": new java.awt.Color( 51, 51, 51, 255 )
+				"margin": new java.awt.Insets( 8, 8, 8, 8 )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu_file"
+					"text": "File"
+					"foreground": new java.awt.Color( 255, 255, 255, 255 )
+					"background": new java.awt.Color( 102, 102, 102, 255 )
+					"horizontalAlignment": 0
+					"font": new java.awt.Font( "JetBrains Mono", 1, 12 )
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem_open"
+						"text": "Open"
+						auxiliary() {
+							"JavaCodeGenerator.variableGetter": true
+						}
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem_createNewMap"
+						"text": "Create New Map"
+						auxiliary() {
+							"JavaCodeGenerator.variableGetter": true
+						}
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem_loadMap"
+						"text": "Select Map"
+						auxiliary() {
+							"JavaCodeGenerator.variableGetter": true
+						}
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem_saveAll"
+						"text": "Save All"
+						auxiliary() {
+							"JavaCodeGenerator.variableGetter": true
+						}
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1440, 950 )
+		} )
+		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
+			name: "popupMenu_loadMap"
+			"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"label": "Load Map"
+			auxiliary() {
+				"JavaCodeGenerator.variableGetter": true
+			}
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel1"
+				"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane2"
+					"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					add( new FormComponent( "javax.swing.JList" ) {
+						name: "popupMenu_loadMap_mapList"
+						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						auxiliary() {
+							"JavaCodeGenerator.variableGetter": true
+							"JavaCodeGenerator.typeParameters": "String"
+						}
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) ) {
+				name: "panel15"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_popup_loadMap_confirm"
+					"text": "Load Map"
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_popup_loadmap_cancel"
+					"text": "Cancel"
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "_popup_loadmap_cancel", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 1485, 275 )
+			"size": new java.awt.Dimension( 320, 326 )
+		} )
+		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
+			name: "buttonGroup_selectionType"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 130, 985 )
+		} )
+		add( new FormComponent( "javax.swing.JFileChooser" ) {
+			name: "fileChooser_open"
+			"dialogTitle": "Choose File"
+			"font": new java.awt.Font( "JetBrains Mono", 0, 13 )
+			auxiliary() {
+				"JavaCodeGenerator.variableGetter": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 1048 )
+		} )
+	}
+}
