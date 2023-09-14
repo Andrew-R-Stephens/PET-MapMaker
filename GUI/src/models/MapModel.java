@@ -1,5 +1,8 @@
 package models;
 
+import main.java.models.MapFileWriter;
+import main.java.models.WorldMapWrapper;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,5 +1,7 @@
 package models;
 
+import main.java.models.WorldMapWrapper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,19 +14,7 @@ public class FloorModel {
     private FloorLayer floorLayer;
 
     private final ArrayList<RoomModel> floorRooms = new ArrayList<>();
-
-    /*
-    public FloorModel(WorldMapWrapper.WorldMap.Floor floor) {
-        floorImage = floor.image_file;
-        floorId = floor.floor_id;
-        floorName = floor.floor_name;
-        floorLayer = FloorLayer.values()[floor.floor_number];
-
-        for(WorldMapWrapper.WorldMap.Floor.Room r: floor.floor_rooms) {
-            floorRooms.add(new RoomModel(r.room_iD, r.room_name, r.points, r.dimensions));
-        }
-    }
-    */
+    private final ArrayList<PoiModel> floorPOIs = new ArrayList<>();
 
     public FloorModel(WorldMapWrapper.WorldMap.Floor floor) {
         floorImage = floor.image_file;
@@ -34,6 +24,10 @@ public class FloorModel {
 
         for(WorldMapWrapper.WorldMap.Floor.Room r: floor.floor_rooms) {
             floorRooms.add(new RoomModel(r.room_iD, r.room_name, r.room_points));
+        }
+
+        for(WorldMapWrapper.WorldMap.Floor.POI p: floor.floor_pois) {
+            floorPOIs.add(new PoiModel(p.poi_iD, p.poi_name, p.poi_type, p.x, p.y));
         }
     }
 
@@ -95,10 +89,20 @@ public class FloorModel {
         return floorLayer;
     }
 
-    public int getNextAvailableId() {
+    public int getNextAvailableRoomId() {
         ArrayList<Integer> ids = new ArrayList<>();
         for (RoomModel room : floorRooms) {
             ids.add(room.getId());
+        }
+        Collections.sort(ids);
+        int index = ids.size()-1;
+        return index > -1 ? ids.get(index) + 1 : 0;
+    }
+
+    public int getNextAvailablePoiId() {
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (PoiModel poi : floorPOIs) {
+            ids.add(poi.getId());
         }
         Collections.sort(ids);
         int index = ids.size()-1;
@@ -142,6 +146,10 @@ public class FloorModel {
             floor.floor_rooms.add(r.buildRoom());
         }
 
+        for(PoiModel p: floorPOIs) {
+            floor.floor_pois.add(p.buildPoi());
+        }
+
         return floor;
     }
 
@@ -155,5 +163,18 @@ public class FloorModel {
 
     public void setFloorLayer(FloorLayer layer) {
         this.floorLayer = layer;
+    }
+
+    public ArrayList<PoiModel> getFloorPOIs() {
+        return floorPOIs;
+    }
+
+    public void addPoi(PoiModel passedPoiModel) {
+        if(passedPoiModel.getId() == -1) {
+            passedPoiModel.setId(getFloorPOIs().size());
+            this.floorPOIs.add(passedPoiModel);
+        } else {
+            floorPOIs.add(new PoiModel(passedPoiModel));
+        }
     }
 }

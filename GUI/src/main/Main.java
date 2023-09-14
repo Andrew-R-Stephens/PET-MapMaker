@@ -1,5 +1,6 @@
 package main;
 
+import main.java.models.*;
 import models.*;
 import views.MapImageViewPanel;
 import views.MapMakerGUIWrapper;
@@ -7,12 +8,11 @@ import views.RoomJListCellRenderer;
 import views.RoomSpinner;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -22,8 +22,6 @@ public class Main {
 
     private static ImagesModel imageData;
     private static MapListModel mapListModel;
-    private static RoomModel tempRoomModel = new RoomModel();
-
 
     private static MapMakerGUIWrapper window;
 
@@ -38,17 +36,22 @@ public class Main {
 
     private static JTextField textField_mapName, textField_floorName;
 
-    private static JButton button_addFloor, button_removeFloor;
-    private static JButton button_floorDecrement, button_floorIncrement;
-    private static JButton button_addRoom, button_removeRoom;
+    private static JTabbedPane tabbedPane;
 
-    private static FloorTypeComboBox<String> jComboBox_floorTypes;
+    private static JButton
+            button_addFloor, button_removeFloor,
+            button_floorDecrement, button_floorIncrement,
+            button_addPOI, button_removePOI,
+            button_addRoom, button_removeRoom,
+            button_forceRightAngle;
+
+    private static FloorTypeComboBox<String> jComboBox_floorTypes, jComboBox_poiTypes;
     private static JComboBox<String> jComboBox_floorImage;
 
-    private static JList<String> jList_roomList;
+    private static JList<String> jList_roomList, jList_poiList;
 
-    private static JTextField textField_roomName;
-    private static JSpinner spinner_roomID;
+    private static JTextField textField_roomName, textField_poiName;
+    private static JSpinner spinner_roomID, spinner_poiID, spinner_poix, spinner_poiy;
 
     private static RoomSpinner spinner_points, spinner_x, spinner_y;
 
@@ -67,7 +70,7 @@ public class Main {
     public static void initData() {
         System.out.println("Initializing Data");
 
-        //loadFile("./GUI/res/maps2.json");
+        //loadFile("./GUI/res/maps.json");
 
         imageData = new ImagesModel();
 
@@ -104,8 +107,25 @@ public class Main {
         button_floorDecrement = window.getButton_floorDecrement() ;
         button_floorIncrement = window.getButton_floorIncrement();
 
+        tabbedPane = window.getTabbedPane();
+
+        button_addPOI = window.getButton_addpoi();
+        button_removePOI = window.getButton_removepoi();
+
+        jComboBox_poiTypes = window.getComboBox_poitType();
+
+        jList_poiList = window.getJList_poiList();
+
+        textField_poiName = window.getTextField_poiName();
+        spinner_poiID = window.getTextField_poiID();
+
+        spinner_poix = window.getSpinner_poix();
+        spinner_poiy = window.getSpinner_poiy();
+
         button_addRoom = window.getButton_addRoom();
         button_removeRoom = window.getButton_removeRoom();
+
+        button_forceRightAngle = window.getButton_forceRightAngle();
 
         jComboBox_floorTypes = window.getComboBox_floorTypes();
         jComboBox_floorImage = window.getComboBox_floorImage();
@@ -133,6 +153,8 @@ public class Main {
         panel_mapView.init(
                 mapListModel,
                 button_addFloor,
+                jList_roomList,
+                jList_poiList,
                 textField_roomName,
                 spinner_points, spinner_x, spinner_y
         );
@@ -170,6 +192,10 @@ public class Main {
 
         for(String key: imageData.getKeySet()) {
             jComboBox_floorImage.addItem(key);
+        }
+
+        for(PoiType type: PoiType.values()) {
+            jComboBox_poiTypes.addItem(type.name());
         }
 
         updateFloorTypeSpinner();
@@ -212,6 +238,7 @@ public class Main {
             System.out.println(mapModel);
 
             resetDataOfRoomViews();
+            resetDataOfPoiViews();
 
             panel_mapView.setImage(imageData.getValue(mapListModel.getCurrentMap().getCurrentFloor().getFloorImage()));
             textField_mapName.setText(mapListModel.getCurrentMap().mapName);
@@ -219,7 +246,10 @@ public class Main {
             jComboBox_floorTypes.setSelectedIndex(mapModel.getCurrentLayerOrdinal());
             System.out.println("Selected type " + jComboBox_floorTypes.getSelectedIndex());
 
+            button_addPOI.setText("Add POI");
+
             updateRoomsListView();
+            updatePoisListView();
 
             menuItem_loadMap.getComponentPopupMenu().setVisible(false);
             panel_mapView.repaint();
@@ -325,7 +355,7 @@ public class Main {
                 jList_roomList.clearSelection();
                 mapModel.getCurrentFloor().getFloorRooms().remove(selectedIndex);
                 panel_mapView.repaint();
-                panel_mapView.setTempRoom(new RoomModel());
+                mapListModel.setTempRoomModel(new RoomModel());
                 resetDataOfRoomViews();
                 updateRoomsListView();
                 button_addRoom.setText("Add Room");
@@ -344,7 +374,7 @@ public class Main {
                 panel_mapView.repaint();
                 button_addRoom.setText("Save Room");
 
-                panel_mapView.setTempRoom(new RoomModel());
+                mapListModel.setTempRoomModel(new RoomModel());
                 fillDataOfRoomViews(mapListModel.getTempRoomModel());
 
                 return;
@@ -357,7 +387,7 @@ public class Main {
             panel_mapView.repaint();
             button_addRoom.setText("Save Room");
 
-            panel_mapView.setTempRoom(new RoomModel(roomData));
+            mapListModel.setTempRoomModel(new RoomModel(roomData));
         });
 
         panel_mapView.addMouseListener(new MouseListener() {
@@ -367,15 +397,28 @@ public class Main {
                     return;
                 }
 
-                if(e.getButton() == MouseEvent.BUTTON1) {
-                    MapModel mapModel = mapListModel.getCurrentMap();
-                    mapListModel.getTempRoomModel().setId(mapModel.getCurrentFloor().getNextAvailableId());
-                    panel_mapView.setTempRoom(mapListModel.getTempRoomModel());
-                    jList_roomList.clearSelection();
-                    jList_roomList.setSelectedIndex(-1);
-                    resetDataOfRoomViews();
-                    button_addRoom.setText("Add Room");
-                    System.out.println("JList Cleared");
+                MapModel mapModel = mapListModel.getCurrentMap();
+                switch(tabbedPane.getSelectedIndex()) {
+                    case 0 -> {
+                        if (e.getButton() == MouseEvent.BUTTON1) {
+                            mapListModel.getTempRoomModel().setId(mapModel.getCurrentFloor().getNextAvailableRoomId());
+                            jList_roomList.clearSelection();
+                            jList_roomList.setSelectedIndex(-1);
+                            resetDataOfRoomViews();
+                            button_addRoom.setText("Add Room");
+                            System.out.println("JList rooms Cleared");
+                        }
+                    }
+                    case 1 -> {
+                        if (e.getButton() == MouseEvent.BUTTON1) {
+                            mapListModel.getTempPoiModel().setId(mapModel.getCurrentFloor().getNextAvailablePoiId());
+                            //jList_poiList.clearSelection();
+                            //jList_poiList.setSelectedIndex(-1);
+                            //resetDataOfPoiViews();
+                            //button_addPOI.setText("Add POI");
+                            //System.out.println("JList pois Cleared");
+                        }
+                    }
                 }
             }
             @Override
@@ -384,11 +427,24 @@ public class Main {
             }
             @Override
             public void mouseReleased(MouseEvent e) {
-                if(e.getButton() == MouseEvent.BUTTON1) {
-                    if (textField_roomName.getText().length() == 0) {
-                        textField_roomName.requestFocus();
-                    } else {
-                        button_addRoom.requestFocus();
+                switch(tabbedPane.getSelectedIndex()) {
+                    case 0 -> {
+                        if (e.getButton() == MouseEvent.BUTTON1) {
+                            if (textField_roomName.getText().length() == 0) {
+                                textField_roomName.requestFocus();
+                            } else {
+                                button_addRoom.requestFocus();
+                            }
+                        }
+                    }
+                    case 1 -> {
+                        if (e.getButton() == MouseEvent.BUTTON1) {
+                            if (textField_poiName.getText().length() == 0) {
+                                textField_poiName.requestFocus();
+                            } else {
+                                button_addPOI.requestFocus();
+                            }
+                        }
                     }
                 }
 
@@ -419,6 +475,16 @@ public class Main {
             jComboBox_floorImage.setSelectedItem(imageFile);
 
             updateRoomsListView();
+            updatePoisListView();
+            panel_mapView.repaint();
+        });
+
+        jComboBox_poiTypes.addActionListener(e -> {
+            int selectedIndex = jComboBox_poiTypes.getSelectedIndex();
+            PoiType selectedType = selectedIndex < 0 ? null : PoiType.values()[selectedIndex];
+            mapListModel.getTempPoiModel().setType(selectedType);
+
+            //updatePoisListView();
             panel_mapView.repaint();
         });
 
@@ -459,6 +525,87 @@ public class Main {
             updateRoomsListView();
             panel_mapView.repaint();
         });
+
+        button_forceRightAngle.addActionListener(e -> {
+            //if(button_forceRightAngle.isEnabled()) { return; }
+            mapListModel.getTempRoomModel().getRoomArea().forceRightAngle();
+            panel_mapView.repaint();
+        });
+
+        jList_roomList.addKeyListener(new KeyListener());
+
+        tabbedPane.addChangeListener(e -> {
+            if(mapListModel == null) { return; }
+
+            switch (tabbedPane.getSelectedIndex()) {
+                case 0 -> {
+                    mapListModel.setTempPoiModel(null);
+                    mapListModel.setTempRoomModel(new RoomModel());
+                }
+                case 1 -> {
+                    mapListModel.setTempRoomModel(null);
+                    mapListModel.setTempPoiModel(new PoiModel());
+                }
+            }
+        });
+
+        button_addPOI.addActionListener(e -> {
+            if(button_addPOI.getText().equals("Add POI")) {
+                addTempPoiToFloorModel();
+            }
+            if(button_addPOI.getText().equals("Save POI")) {
+                updatePoi(jList_poiList.getSelectedIndex());
+                button_addPOI.setText("Add POI");
+            }
+        });
+
+        button_removePOI.addActionListener(e -> {
+            int selectedIndex = jList_poiList.getSelectedIndex();
+            MapModel mapModel = mapListModel.getCurrentMap();
+            if(selectedIndex >= 0 && selectedIndex < mapModel.getCurrentFloor().getFloorPOIs().size()) {
+                jList_poiList.clearSelection();
+                mapModel.getCurrentFloor().getFloorPOIs().remove(selectedIndex);
+                System.out.println("Removed and current size is " + mapModel.getCurrentFloor().getFloorPOIs().size());
+                panel_mapView.repaint();
+                panel_mapView.setTempPoi(new PoiModel());
+                resetDataOfPoiViews();
+                updatePoisListView();
+                button_addPOI.setText("Add POI");
+            }
+        });
+
+        jList_poiList.addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                System.out.println("Adjusting");
+                return;
+            }
+            System.out.println("Not adjusting");
+
+            int selectedIndex = jList_poiList.getSelectedIndex();
+            MapModel mapModel = mapListModel.getCurrentMap();
+            if (selectedIndex < 0 || selectedIndex > mapModel.getCurrentFloor().getFloorPOIs().size() - 1) {
+                System.out.println("PoiData selection OOB");
+
+                panel_mapView.repaint();
+                button_addPOI.setText("Save POI");
+
+                panel_mapView.setTempPoi(new PoiModel());
+                fillDataOfPoiViews(mapListModel.getTempPoiModel());
+
+                return;
+            }
+
+            PoiModel poiData = mapModel.getCurrentFloor().getFloorPOIs().get(selectedIndex);
+            if (poiData != null) {
+                System.out.println("PoiData exists" + poiData.getId() + " " + poiData.getName());
+                fillDataOfPoiViews(poiData);
+            }
+            panel_mapView.repaint();
+            button_addPOI.setText("Save POI");
+
+            mapListModel.setTempPoiModel(new PoiModel(poiData));
+            System.out.println("TempModel: " + mapListModel.getTempPoiModel());
+        });
     }
 
     public static void updateFloorTypeSpinner() {
@@ -479,6 +626,10 @@ public class Main {
         fillDataOfRoomViews(mapListModel.getTempRoomModel());
     }
 
+    public static void resetDataOfPoiViews() {
+        fillDataOfPoiViews(mapListModel.getTempPoiModel());
+    }
+
     public static void fillDataOfRoomViews(RoomModel roomData) {
         for(int i = 0; i < jComboBox_floorImage.getModel().getSize(); i++) {
             MapModel mapModel = mapListModel.getCurrentMap();
@@ -488,20 +639,21 @@ public class Main {
                 jComboBox_floorImage.setSelectedItem(jComboBox_floorImage.getItemAt(i));
             }
         }
-        textField_roomName.setText(roomData.getName());
-        spinner_roomID.setValue(roomData.getId());
+        if(roomData != null) {
+            textField_roomName.setText(roomData.getName());
+            spinner_roomID.setValue(roomData.getId());
+        }
 
-        /*
-        spinner_x1.setValue(roomData.getX1());
-        spinner_y1.setValue(roomData.getY1());
-        spinner_x2.setValue(roomData.getX2());
-        spinner_y2.setValue(roomData.getY2());
-        spinner_width.setValue(roomData.getWidth());
-        spinner_height.setValue(roomData.getHeight());
+    }
 
-        radioButton_rectangle.setSelected(roomData.getPoints().size() <= 4);
-        radioButton_polygon.setSelected(roomData.getPoints().size() > 4);
-        */
+    public static void fillDataOfPoiViews(PoiModel poiData) {
+
+        if(poiData != null) {
+            textField_poiName.setText(poiData.getName());
+            spinner_poiID.setValue(poiData.getId());
+            jComboBox_poiTypes.setSelectedIndex(poiData.getType().ordinal());
+        }
+
     }
 
     public static void addTempRoomToFloorModel() {
@@ -519,7 +671,7 @@ public class Main {
         MapModel currentMap = mapListModel.getCurrentMap();
         if(!mapListModel.getTempRoomModel().hasId()) {
             if (currentMap.getCurrentFloor().hasId(Integer.parseInt(String.valueOf(spinner_roomID.getValue())))) {
-                mapListModel.getTempRoomModel().setId(currentMap.getCurrentFloor().getNextAvailableId());
+                mapListModel.getTempRoomModel().setId(currentMap.getCurrentFloor().getNextAvailableRoomId());
             }
         }
         currentMap.getCurrentFloor().addRoom(new RoomModel(mapListModel.getTempRoomModel()));
@@ -528,6 +680,36 @@ public class Main {
 
         panel_mapView.repaint();
         updateRoomsListView();
+
+    }
+
+    public static void addTempPoiToFloorModel() {
+        if(!mapListModel.getTempPoiModel().isReady()){
+            System.out.println("POI not ready");
+            return;
+        }
+
+        PoiModel tempPoiModel = mapListModel.getTempPoiModel();
+
+        System.out.println("Adding temp floor to model");
+        System.out.println(tempPoiModel);
+        System.out.println("----");
+
+        if(!tempPoiModel.hasName())
+            tempPoiModel.setName(textField_poiName.getText());
+
+        MapModel currentMap = mapListModel.getCurrentMap();
+        if(!tempPoiModel.hasId()) {
+            if (currentMap.getCurrentFloor().hasId(Integer.parseInt(String.valueOf(spinner_poiID.getValue())))) {
+                tempPoiModel.setId(currentMap.getCurrentFloor().getNextAvailablePoiId());
+            }
+        }
+        currentMap.getCurrentFloor().addPoi(new PoiModel(tempPoiModel));
+
+        mapListModel.setTempPoiModel(new PoiModel());
+
+        panel_mapView.repaint();
+        updatePoisListView();
 
     }
 
@@ -540,6 +722,21 @@ public class Main {
 
         panel_mapView.repaint();
         updateRoomsListView();
+    }
+
+    public static void updatePoi(int listIndex) {
+
+        PoiModel existingPoi = mapListModel.getCurrentMap().getCurrentFloor().getFloorPOIs().get(listIndex);
+        existingPoi.setName(textField_poiName.getText());
+        existingPoi.setId(Integer.parseInt(String.valueOf(spinner_poiID.getValue())));
+        existingPoi.setPoint(mapListModel.getTempPoiModel().getPoint());
+        existingPoi.setType(mapListModel.getTempPoiModel().getType());
+        jComboBox_poiTypes.setSelectedIndex(existingPoi.getType().ordinal());
+        System.out.println("Updated POI: " + existingPoi + " " + jComboBox_poiTypes.getSelectedItem());
+
+        panel_mapView.repaint();
+        updatePoisListView();
+
     }
 
     public static void updateRoomsListView() {
@@ -562,6 +759,26 @@ public class Main {
         jList_roomList.setModel(listModel);
     }
 
+    public static void updatePoisListView() {
+
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        RoomJListCellRenderer renderer = new RoomJListCellRenderer();
+
+        System.out.println("Current Floor " + mapListModel.getCurrentMap().getCurrentFloor());
+        FloorModel floorModel = mapListModel.getCurrentMap().getCurrentFloor();
+        for(int i = 0; i < floorModel.getFloorPOIs().size(); i++) {
+            PoiModel poi = mapListModel.getCurrentMap().getCurrentFloor().getFloorPOIs().get(i);
+
+            boolean hasIdError = mapListModel.getCurrentMap().getCurrentFloor().hasMultipleOfId(poi.getId());
+            renderer.addIndexError(hasIdError);
+
+            listModel.addElement(poi.getId() + ": " + poi.getName());
+        }
+
+        jList_poiList.setCellRenderer(renderer);
+        jList_poiList.setModel(listModel);
+    }
+
     public RoomModel getTempRoom() {
         return mapListModel.getTempRoomModel();
     }
@@ -579,12 +796,36 @@ public class Main {
     }
 
     public static void saveFile() {
-        mapFileIO.setFile("./GUI/res/maps3.json");
+        mapFileIO.setFile("./GUI/res/maps.json");
         MapFileWriter writer = new MapFileWriter(new WorldMapWrapper());
         mapListModel.build(writer);
         System.out.println("-----\nPrepped JSON:\n");
         System.out.println(writer.mapsWrapper.maps);
         mapFileIO.writeFile(writer);
     }
+
+
+    static class KeyListener implements java.awt.event.KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) { }
+
+        @Override
+        public void keyPressed(KeyEvent e) { }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            switch(e.getKeyCode()) {
+                case KeyEvent.VK_S: {
+                    if(mapListModel.getTempRoomModel() != null) {
+                        System.out.println("Attempting to square selection.");
+                        mapListModel.getTempRoomModel().getRoomArea().forceRightAngle();
+                        panel_mapView.repaint();
+                    }
+                }
+            }
+        }
+    }
+
 
 }

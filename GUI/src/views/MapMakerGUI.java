@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.*;
+import javax.swing.border.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -150,6 +151,46 @@ public class MapMakerGUI extends JFrame {
         return fileChooser_open;
     }
 
+    public JButton getButton_forceRightAngle() {
+        return button_forceRightAngle;
+    }
+
+    public JButton getButton_addpoi() {
+        return button_addpoi;
+    }
+
+    public JButton getButton_removepoi() {
+        return button_removepoi;
+    }
+
+    public JList<String> getJList_poiList() {
+        return jList_poiList;
+    }
+
+    public JTextField getTextField_poiName() {
+        return textField_poiName;
+    }
+
+    public JSpinner getTextField_poiID() {
+        return textField_poiID;
+    }
+
+    public RoomSpinner getSpinner_poix() {
+        return spinner_poix;
+    }
+
+    public RoomSpinner getSpinner_poiy() {
+        return spinner_poiy;
+    }
+
+    public FloorTypeComboBox<String> getComboBox_poitType() {
+        return comboBox_poitType;
+    }
+
+    public JTabbedPane getTabbedPane() {
+        return tabbedPane;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - Andrew
@@ -180,10 +221,10 @@ public class MapMakerGUI extends JFrame {
         textField_floorName = new JTextField();
         panel4 = new JPanel();
         comboBox_floorImage = new JComboBox();
-        separator1 = new JSeparator();
+        tabbedPane = new JTabbedPane();
+        roomsPanel = new JPanel();
         roomsLabelPanel = new JPanel();
         roomLabel = new JLabel();
-        roomsPanel = new JPanel();
         panel2 = new JPanel();
         button_addRoom = new JButton();
         button_removeRoom = new JButton();
@@ -195,10 +236,29 @@ public class MapMakerGUI extends JFrame {
         textField_roomID = new JSpinner();
         panel10 = new JPanel();
         panel7 = new JPanel();
+        button_forceRightAngle = new JButton();
         spinner_points = new RoomSpinner();
         panel9 = new JPanel();
         spinner_x = new RoomSpinner();
         spinner_y = new RoomSpinner();
+        poiPanel = new JPanel();
+        roomsLabelPanel2 = new JPanel();
+        poiLabel = new JLabel();
+        panel12 = new JPanel();
+        button_addpoi = new JButton();
+        button_removepoi = new JButton();
+        panel18 = new JPanel();
+        scrollPane3 = new JScrollPane();
+        jList_poiList = new JList<>();
+        panel19 = new JPanel();
+        textField_poiName = new JTextField();
+        textField_poiID = new JSpinner();
+        panel20 = new JPanel();
+        panel_poitype = new JPanel();
+        comboBox_poitType = new FloorTypeComboBox<>();
+        panel22 = new JPanel();
+        spinner_poix = new RoomSpinner();
+        spinner_poiy = new RoomSpinner();
         mapViewPanel = new MapImageViewPanel();
         popupMenu_loadMap = new JPopupMenu();
         panel1 = new JPanel();
@@ -260,12 +320,12 @@ public class MapMakerGUI extends JFrame {
             dialogPane.setBackground(new Color(0x333333));
             dialogPane.setPreferredSize(null);
             dialogPane.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
-            . EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax
-            . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,
-            12 ), java. awt. Color. red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (new java. beans
-            . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .
-            getPropertyName () )) throw new RuntimeException( ); }} );
+            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
             dialogPane.setLayout(new BoxLayout(dialogPane, BoxLayout.X_AXIS));
 
             //======== buttonPanel ========
@@ -528,234 +588,486 @@ public class MapMakerGUI extends JFrame {
                     floorsPanel.add(panel4);
                 }
                 buttonPanel.add(floorsPanel);
-                buttonPanel.add(separator1);
 
-                //======== roomsLabelPanel ========
+                //======== tabbedPane ========
                 {
-                    roomsLabelPanel.setBackground(new Color(0x333333));
-                    roomsLabelPanel.setBorder(new EmptyBorder(16, 5, 8, 5));
-                    roomsLabelPanel.setMinimumSize(null);
-                    roomsLabelPanel.setMaximumSize(null);
-                    roomsLabelPanel.setPreferredSize(null);
-                    roomsLabelPanel.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                    roomsLabelPanel.setLayout(new BoxLayout(roomsLabelPanel, BoxLayout.LINE_AXIS));
+                    tabbedPane.setBackground(Color.gray);
+                    tabbedPane.setFont(new Font("JetBrains Mono", Font.BOLD, 14));
+                    tabbedPane.setForeground(new Color(0x333333));
 
-                    //---- roomLabel ----
-                    roomLabel.setText("Room");
-                    roomLabel.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
-                    roomLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                    roomLabel.setPreferredSize(null);
-                    roomLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-                    roomLabel.setForeground(Color.white);
-                    roomLabel.setBackground(new Color(0x00eeeeee, true));
-                    roomLabel.setMaximumSize(null);
-                    roomLabel.setMinimumSize(null);
-                    roomsLabelPanel.add(roomLabel);
+                    //======== roomsPanel ========
+                    {
+                        roomsPanel.setBackground(new Color(0x333333));
+                        roomsPanel.setMinimumSize(null);
+                        roomsPanel.setPreferredSize(null);
+                        roomsPanel.setMaximumSize(null);
+                        roomsPanel.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                        roomsPanel.setBorder(new EmptyBorder(8, 8, 8, 8));
+                        roomsPanel.setForeground(Color.white);
+                        roomsPanel.setLayout(new BoxLayout(roomsPanel, BoxLayout.Y_AXIS));
+
+                        //======== roomsLabelPanel ========
+                        {
+                            roomsLabelPanel.setBackground(new Color(0x333333));
+                            roomsLabelPanel.setBorder(new EmptyBorder(16, 5, 8, 5));
+                            roomsLabelPanel.setMinimumSize(null);
+                            roomsLabelPanel.setMaximumSize(null);
+                            roomsLabelPanel.setPreferredSize(null);
+                            roomsLabelPanel.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            roomsLabelPanel.setLayout(new BoxLayout(roomsLabelPanel, BoxLayout.LINE_AXIS));
+
+                            //---- roomLabel ----
+                            roomLabel.setText("Room");
+                            roomLabel.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                            roomLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                            roomLabel.setPreferredSize(null);
+                            roomLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+                            roomLabel.setForeground(Color.white);
+                            roomLabel.setBackground(new Color(0x00eeeeee, true));
+                            roomLabel.setMaximumSize(null);
+                            roomLabel.setMinimumSize(null);
+                            roomsLabelPanel.add(roomLabel);
+                        }
+                        roomsPanel.add(roomsLabelPanel);
+
+                        //======== panel2 ========
+                        {
+                            panel2.setPreferredSize(null);
+                            panel2.setMaximumSize(null);
+                            panel2.setMinimumSize(null);
+                            panel2.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+                            panel2.setBorder(BorderFactory.createEmptyBorder());
+                            panel2.setBackground(new Color(0x333333));
+                            panel2.setForeground(Color.white);
+                            panel2.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 32, 5));
+
+                            //---- button_addRoom ----
+                            button_addRoom.setText("Add Room");
+                            button_addRoom.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                            button_addRoom.setBackground(new Color(0x006600));
+                            button_addRoom.setPreferredSize(null);
+                            button_addRoom.setMargin(null);
+                            button_addRoom.setMaximumSize(null);
+                            button_addRoom.setMinimumSize(null);
+                            button_addRoom.setForeground(Color.white);
+                            button_addRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                            panel2.add(button_addRoom);
+
+                            //---- button_removeRoom ----
+                            button_removeRoom.setText("Remove Room");
+                            button_removeRoom.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                            button_removeRoom.setForeground(Color.white);
+                            button_removeRoom.setBackground(new Color(0x660000));
+                            button_removeRoom.setPreferredSize(null);
+                            button_removeRoom.setMargin(null);
+                            button_removeRoom.setMaximumSize(null);
+                            button_removeRoom.setMinimumSize(null);
+                            button_removeRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                            panel2.add(button_removeRoom);
+                        }
+                        roomsPanel.add(panel2);
+
+                        //======== panel5 ========
+                        {
+                            panel5.setOpaque(false);
+                            panel5.setPreferredSize(null);
+                            panel5.setMinimumSize(null);
+                            panel5.setMaximumSize(null);
+                            panel5.setBorder(new EmptyBorder(16, 0, 16, 0));
+                            panel5.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel5.setLayout(new BorderLayout());
+
+                            //======== scrollPane1 ========
+                            {
+                                scrollPane1.setPreferredSize(null);
+                                scrollPane1.setMaximumSize(null);
+                                scrollPane1.setMinimumSize(null);
+                                scrollPane1.setOpaque(false);
+                                scrollPane1.setBackground(new Color(0x00eeeeee, true));
+                                scrollPane1.setViewportBorder(new TitledBorder(null, "Available Rooms", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                scrollPane1.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                scrollPane1.setBorder(BorderFactory.createEmptyBorder());
+
+                                //---- scrollView_roomList ----
+                                scrollView_roomList.setMaximumSize(null);
+                                scrollView_roomList.setMinimumSize(null);
+                                scrollView_roomList.setPreferredSize(null);
+                                scrollView_roomList.setBackground(Color.lightGray);
+                                scrollView_roomList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                                scrollView_roomList.setVisibleRowCount(10);
+                                scrollView_roomList.setBorder(BorderFactory.createEmptyBorder());
+                                scrollView_roomList.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                                scrollView_roomList.setSelectionBackground(Color.darkGray);
+                                scrollView_roomList.setSelectionForeground(Color.white);
+                                scrollView_roomList.setName("Recorded Rooms");
+                                scrollView_roomList.setFixedCellHeight(20);
+                                scrollView_roomList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                scrollPane1.setViewportView(scrollView_roomList);
+                            }
+                            panel5.add(scrollPane1, BorderLayout.CENTER);
+                        }
+                        roomsPanel.add(panel5);
+
+                        //======== panel8 ========
+                        {
+                            panel8.setBorder(BorderFactory.createEmptyBorder());
+                            panel8.setOpaque(false);
+                            panel8.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel8.setBackground(new Color(0x333333));
+                            panel8.setForeground(Color.white);
+                            panel8.setLayout(new GridLayout(1, 0, 16, 0));
+
+                            //---- textField_roomName ----
+                            textField_roomName.setPreferredSize(null);
+                            textField_roomName.setMaximumSize(null);
+                            textField_roomName.setBorder(new TitledBorder(null, "Room Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
+                            textField_roomName.setMargin(new Insets(8, 0, 0, 0));
+                            textField_roomName.setMinimumSize(null);
+                            textField_roomName.setBackground(new Color(0x333333));
+                            textField_roomName.setForeground(Color.white);
+                            textField_roomName.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            textField_roomName.setSelectedTextColor(Color.white);
+                            textField_roomName.setSelectionColor(Color.black);
+                            textField_roomName.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                            panel8.add(textField_roomName);
+
+                            //---- textField_roomID ----
+                            textField_roomID.setPreferredSize(null);
+                            textField_roomID.setMaximumSize(null);
+                            textField_roomID.setBorder(new TitledBorder(null, "Room ID", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
+                            textField_roomID.setMinimumSize(null);
+                            textField_roomID.setBackground(new Color(0x333333));
+                            textField_roomID.setForeground(Color.white);
+                            textField_roomID.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel8.add(textField_roomID);
+                        }
+                        roomsPanel.add(panel8);
+
+                        //======== panel10 ========
+                        {
+                            panel10.setBorder(new TitledBorder(null, "Room Points", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                            panel10.setOpaque(false);
+                            panel10.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                            panel10.setLayout(new GridLayout(2, 0));
+
+                            //======== panel7 ========
+                            {
+                                panel7.setBorder(new EmptyBorder(8, 0, 8, 0));
+                                panel7.setOpaque(false);
+                                panel7.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                                panel7.setPreferredSize(null);
+                                panel7.setMinimumSize(null);
+                                panel7.setMaximumSize(null);
+                                panel7.setLayout(new BoxLayout(panel7, BoxLayout.X_AXIS));
+
+                                //---- button_forceRightAngle ----
+                                button_forceRightAngle.setIcon(new ImageIcon(getClass().getResource("/squared.png")));
+                                button_forceRightAngle.setMaximumSize(new Dimension(52, 52));
+                                button_forceRightAngle.setMinimumSize(new Dimension(52, 52));
+                                button_forceRightAngle.setPreferredSize(new Dimension(52, 52));
+                                button_forceRightAngle.setBorder(new LineBorder(Color.black, 2, true));
+                                button_forceRightAngle.setForeground(Color.white);
+                                button_forceRightAngle.setBackground(new Color(0x333333));
+                                button_forceRightAngle.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                button_forceRightAngle.setIconTextGap(0);
+                                button_forceRightAngle.setAlignmentX(0.5F);
+                                panel7.add(button_forceRightAngle);
+
+                                //---- spinner_points ----
+                                spinner_points.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Point", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                spinner_points.setBackground(new Color(0x333333));
+                                spinner_points.setForeground(Color.white);
+                                spinner_points.setPreferredSize(null);
+                                spinner_points.setMinimumSize(null);
+                                spinner_points.setMaximumSize(null);
+                                spinner_points.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                spinner_points.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                spinner_points.setFocusable(false);
+                                panel7.add(spinner_points);
+                            }
+                            panel10.add(panel7);
+
+                            //======== panel9 ========
+                            {
+                                panel9.setBorder(new EmptyBorder(8, 0, 8, 0));
+                                panel9.setOpaque(false);
+                                panel9.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                                panel9.setPreferredSize(null);
+                                panel9.setMinimumSize(null);
+                                panel9.setMaximumSize(null);
+                                panel9.setLayout(new BoxLayout(panel9, BoxLayout.X_AXIS));
+
+                                //---- spinner_x ----
+                                spinner_x.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "X", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                spinner_x.setBackground(new Color(0x333333));
+                                spinner_x.setForeground(Color.white);
+                                spinner_x.setPreferredSize(null);
+                                spinner_x.setMinimumSize(null);
+                                spinner_x.setMaximumSize(null);
+                                spinner_x.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                spinner_x.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                spinner_x.setFocusable(false);
+                                panel9.add(spinner_x);
+
+                                //---- spinner_y ----
+                                spinner_y.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Y", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                spinner_y.setBackground(new Color(0x333333));
+                                spinner_y.setForeground(Color.white);
+                                spinner_y.setModel(new SpinnerNumberModel(0, null, null, 1));
+                                spinner_y.setMinimumSize(null);
+                                spinner_y.setPreferredSize(null);
+                                spinner_y.setMaximumSize(null);
+                                spinner_y.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                spinner_y.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                spinner_y.setFocusable(false);
+                                panel9.add(spinner_y);
+                            }
+                            panel10.add(panel9);
+                        }
+                        roomsPanel.add(panel10);
+                    }
+                    tabbedPane.addTab("Rooms", roomsPanel);
+                    tabbedPane.setBackgroundAt(0, new Color(0x333333));
+                    tabbedPane.setForegroundAt(0, Color.white);
+
+                    //======== poiPanel ========
+                    {
+                        poiPanel.setBackground(new Color(0x333333));
+                        poiPanel.setMinimumSize(null);
+                        poiPanel.setPreferredSize(null);
+                        poiPanel.setMaximumSize(null);
+                        poiPanel.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                        poiPanel.setBorder(new EmptyBorder(8, 8, 8, 8));
+                        poiPanel.setForeground(new Color(0x333333));
+                        poiPanel.setLayout(new BoxLayout(poiPanel, BoxLayout.Y_AXIS));
+
+                        //======== roomsLabelPanel2 ========
+                        {
+                            roomsLabelPanel2.setBackground(new Color(0x333333));
+                            roomsLabelPanel2.setBorder(new EmptyBorder(16, 5, 8, 5));
+                            roomsLabelPanel2.setMinimumSize(null);
+                            roomsLabelPanel2.setMaximumSize(null);
+                            roomsLabelPanel2.setPreferredSize(null);
+                            roomsLabelPanel2.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            roomsLabelPanel2.setLayout(new BoxLayout(roomsLabelPanel2, BoxLayout.LINE_AXIS));
+
+                            //---- poiLabel ----
+                            poiLabel.setText("Point of Interest");
+                            poiLabel.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                            poiLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                            poiLabel.setPreferredSize(null);
+                            poiLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+                            poiLabel.setForeground(Color.white);
+                            poiLabel.setBackground(new Color(0x00eeeeee, true));
+                            poiLabel.setMaximumSize(null);
+                            poiLabel.setMinimumSize(null);
+                            roomsLabelPanel2.add(poiLabel);
+                        }
+                        poiPanel.add(roomsLabelPanel2);
+
+                        //======== panel12 ========
+                        {
+                            panel12.setPreferredSize(null);
+                            panel12.setMaximumSize(null);
+                            panel12.setMinimumSize(null);
+                            panel12.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+                            panel12.setBorder(BorderFactory.createEmptyBorder());
+                            panel12.setBackground(new Color(0x333333));
+                            panel12.setForeground(Color.white);
+                            panel12.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel12.setLayout(new FlowLayout(FlowLayout.CENTER, 32, 5));
+
+                            //---- button_addpoi ----
+                            button_addpoi.setText("Add POI");
+                            button_addpoi.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                            button_addpoi.setBackground(new Color(0x006600));
+                            button_addpoi.setPreferredSize(null);
+                            button_addpoi.setMargin(null);
+                            button_addpoi.setMaximumSize(null);
+                            button_addpoi.setMinimumSize(null);
+                            button_addpoi.setForeground(Color.white);
+                            button_addpoi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                            panel12.add(button_addpoi);
+
+                            //---- button_removepoi ----
+                            button_removepoi.setText("Remove POI");
+                            button_removepoi.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                            button_removepoi.setForeground(Color.white);
+                            button_removepoi.setBackground(new Color(0x660000));
+                            button_removepoi.setPreferredSize(null);
+                            button_removepoi.setMargin(null);
+                            button_removepoi.setMaximumSize(null);
+                            button_removepoi.setMinimumSize(null);
+                            button_removepoi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                            panel12.add(button_removepoi);
+                        }
+                        poiPanel.add(panel12);
+
+                        //======== panel18 ========
+                        {
+                            panel18.setOpaque(false);
+                            panel18.setPreferredSize(null);
+                            panel18.setMinimumSize(null);
+                            panel18.setMaximumSize(null);
+                            panel18.setBorder(new EmptyBorder(16, 0, 16, 0));
+                            panel18.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel18.setLayout(new BorderLayout());
+
+                            //======== scrollPane3 ========
+                            {
+                                scrollPane3.setPreferredSize(null);
+                                scrollPane3.setMaximumSize(null);
+                                scrollPane3.setMinimumSize(null);
+                                scrollPane3.setOpaque(false);
+                                scrollPane3.setBackground(new Color(0x00eeeeee, true));
+                                scrollPane3.setViewportBorder(new TitledBorder(null, "Available POIs", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                scrollPane3.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                scrollPane3.setBorder(BorderFactory.createEmptyBorder());
+
+                                //---- jList_poiList ----
+                                jList_poiList.setMaximumSize(null);
+                                jList_poiList.setMinimumSize(null);
+                                jList_poiList.setPreferredSize(null);
+                                jList_poiList.setBackground(Color.lightGray);
+                                jList_poiList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                                jList_poiList.setVisibleRowCount(10);
+                                jList_poiList.setBorder(BorderFactory.createEmptyBorder());
+                                jList_poiList.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
+                                jList_poiList.setSelectionBackground(Color.darkGray);
+                                jList_poiList.setSelectionForeground(Color.white);
+                                jList_poiList.setName("Recorded Rooms");
+                                jList_poiList.setFixedCellHeight(20);
+                                jList_poiList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                scrollPane3.setViewportView(jList_poiList);
+                            }
+                            panel18.add(scrollPane3, BorderLayout.CENTER);
+                        }
+                        poiPanel.add(panel18);
+
+                        //======== panel19 ========
+                        {
+                            panel19.setBorder(BorderFactory.createEmptyBorder());
+                            panel19.setOpaque(false);
+                            panel19.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel19.setBackground(new Color(0x333333));
+                            panel19.setForeground(Color.white);
+                            panel19.setLayout(new GridLayout(1, 0, 16, 0));
+
+                            //---- textField_poiName ----
+                            textField_poiName.setPreferredSize(null);
+                            textField_poiName.setMaximumSize(null);
+                            textField_poiName.setBorder(new TitledBorder(null, "POI Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
+                            textField_poiName.setMargin(new Insets(8, 0, 0, 0));
+                            textField_poiName.setMinimumSize(null);
+                            textField_poiName.setBackground(new Color(0x333333));
+                            textField_poiName.setForeground(Color.white);
+                            textField_poiName.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            textField_poiName.setSelectedTextColor(Color.white);
+                            textField_poiName.setSelectionColor(Color.black);
+                            textField_poiName.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                            panel19.add(textField_poiName);
+
+                            //---- textField_poiID ----
+                            textField_poiID.setPreferredSize(null);
+                            textField_poiID.setMaximumSize(null);
+                            textField_poiID.setBorder(new TitledBorder(null, "POI ID", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
+                            textField_poiID.setMinimumSize(null);
+                            textField_poiID.setBackground(new Color(0x333333));
+                            textField_poiID.setForeground(Color.white);
+                            textField_poiID.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                            panel19.add(textField_poiID);
+                        }
+                        poiPanel.add(panel19);
+
+                        //======== panel20 ========
+                        {
+                            panel20.setBorder(BorderFactory.createEmptyBorder());
+                            panel20.setOpaque(false);
+                            panel20.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                            panel20.setLayout(new GridLayout(2, 0));
+
+                            //======== panel_poitype ========
+                            {
+                                panel_poitype.setBorder(new EmptyBorder(8, 0, 8, 0));
+                                panel_poitype.setOpaque(false);
+                                panel_poitype.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                                panel_poitype.setPreferredSize(null);
+                                panel_poitype.setMinimumSize(null);
+                                panel_poitype.setMaximumSize(null);
+                                panel_poitype.setLayout(new BoxLayout(panel_poitype, BoxLayout.X_AXIS));
+
+                                //---- comboBox_poitType ----
+                                comboBox_poitType.setPreferredSize(null);
+                                comboBox_poitType.setMaximumSize(null);
+                                comboBox_poitType.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "POI Type", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                comboBox_poitType.setMinimumSize(null);
+                                comboBox_poitType.setBackground(new Color(0x333333));
+                                comboBox_poitType.setForeground(Color.white);
+                                comboBox_poitType.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                comboBox_poitType.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+                                comboBox_poitType.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                panel_poitype.add(comboBox_poitType);
+                            }
+                            panel20.add(panel_poitype);
+
+                            //======== panel22 ========
+                            {
+                                panel22.setBorder(new EmptyBorder(8, 0, 8, 0));
+                                panel22.setOpaque(false);
+                                panel22.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
+                                panel22.setPreferredSize(null);
+                                panel22.setMinimumSize(null);
+                                panel22.setMaximumSize(null);
+                                panel22.setLayout(new BoxLayout(panel22, BoxLayout.X_AXIS));
+
+                                //---- spinner_poix ----
+                                spinner_poix.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "X", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                spinner_poix.setBackground(new Color(0x333333));
+                                spinner_poix.setForeground(Color.white);
+                                spinner_poix.setPreferredSize(null);
+                                spinner_poix.setMinimumSize(null);
+                                spinner_poix.setMaximumSize(null);
+                                spinner_poix.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                spinner_poix.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                spinner_poix.setFocusable(false);
+                                panel22.add(spinner_poix);
+
+                                //---- spinner_poiy ----
+                                spinner_poiy.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Y", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                    new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
+                                spinner_poiy.setBackground(new Color(0x333333));
+                                spinner_poiy.setForeground(Color.white);
+                                spinner_poiy.setModel(new SpinnerNumberModel(0, null, null, 1));
+                                spinner_poiy.setMinimumSize(null);
+                                spinner_poiy.setPreferredSize(null);
+                                spinner_poiy.setMaximumSize(null);
+                                spinner_poiy.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                                spinner_poiy.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                spinner_poiy.setFocusable(false);
+                                panel22.add(spinner_poiy);
+                            }
+                            panel20.add(panel22);
+                        }
+                        poiPanel.add(panel20);
+                    }
+                    tabbedPane.addTab("POIs", poiPanel);
+                    tabbedPane.setBackgroundAt(1, new Color(0x333333));
+                    tabbedPane.setForegroundAt(1, Color.white);
                 }
-                buttonPanel.add(roomsLabelPanel);
-
-                //======== roomsPanel ========
-                {
-                    roomsPanel.setBackground(new Color(0x00eeeeee, true));
-                    roomsPanel.setMinimumSize(null);
-                    roomsPanel.setPreferredSize(null);
-                    roomsPanel.setMaximumSize(null);
-                    roomsPanel.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                    roomsPanel.setBorder(new EmptyBorder(8, 8, 8, 8));
-                    roomsPanel.setLayout(new BoxLayout(roomsPanel, BoxLayout.Y_AXIS));
-
-                    //======== panel2 ========
-                    {
-                        panel2.setPreferredSize(null);
-                        panel2.setMaximumSize(null);
-                        panel2.setMinimumSize(null);
-                        panel2.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-                        panel2.setBorder(BorderFactory.createEmptyBorder());
-                        panel2.setBackground(new Color(0x333333));
-                        panel2.setForeground(Color.white);
-                        panel2.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                        panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 32, 5));
-
-                        //---- button_addRoom ----
-                        button_addRoom.setText("Add Room");
-                        button_addRoom.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
-                        button_addRoom.setBackground(new Color(0x006600));
-                        button_addRoom.setPreferredSize(null);
-                        button_addRoom.setMargin(null);
-                        button_addRoom.setMaximumSize(null);
-                        button_addRoom.setMinimumSize(null);
-                        button_addRoom.setForeground(Color.white);
-                        button_addRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                        panel2.add(button_addRoom);
-
-                        //---- button_removeRoom ----
-                        button_removeRoom.setText("Remove Room");
-                        button_removeRoom.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
-                        button_removeRoom.setForeground(Color.white);
-                        button_removeRoom.setBackground(new Color(0x660000));
-                        button_removeRoom.setPreferredSize(null);
-                        button_removeRoom.setMargin(null);
-                        button_removeRoom.setMaximumSize(null);
-                        button_removeRoom.setMinimumSize(null);
-                        button_removeRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                        panel2.add(button_removeRoom);
-                    }
-                    roomsPanel.add(panel2);
-
-                    //======== panel5 ========
-                    {
-                        panel5.setOpaque(false);
-                        panel5.setPreferredSize(null);
-                        panel5.setMinimumSize(null);
-                        panel5.setMaximumSize(null);
-                        panel5.setBorder(new EmptyBorder(16, 0, 16, 0));
-                        panel5.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                        panel5.setLayout(new BorderLayout());
-
-                        //======== scrollPane1 ========
-                        {
-                            scrollPane1.setPreferredSize(null);
-                            scrollPane1.setMaximumSize(null);
-                            scrollPane1.setMinimumSize(null);
-                            scrollPane1.setOpaque(false);
-                            scrollPane1.setBackground(new Color(0x00eeeeee, true));
-                            scrollPane1.setViewportBorder(new TitledBorder(null, "Available Rooms", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                                new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
-                            scrollPane1.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                            scrollPane1.setBorder(BorderFactory.createEmptyBorder());
-
-                            //---- scrollView_roomList ----
-                            scrollView_roomList.setMaximumSize(null);
-                            scrollView_roomList.setMinimumSize(null);
-                            scrollView_roomList.setPreferredSize(null);
-                            scrollView_roomList.setBackground(Color.lightGray);
-                            scrollView_roomList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-                            scrollView_roomList.setVisibleRowCount(10);
-                            scrollView_roomList.setBorder(BorderFactory.createEmptyBorder());
-                            scrollView_roomList.setFont(new Font("JetBrains Mono", Font.PLAIN, 14));
-                            scrollView_roomList.setSelectionBackground(Color.darkGray);
-                            scrollView_roomList.setSelectionForeground(Color.white);
-                            scrollView_roomList.setName("Recorded Rooms");
-                            scrollView_roomList.setFixedCellHeight(20);
-                            scrollView_roomList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                            scrollPane1.setViewportView(scrollView_roomList);
-                        }
-                        panel5.add(scrollPane1, BorderLayout.CENTER);
-                    }
-                    roomsPanel.add(panel5);
-
-                    //======== panel8 ========
-                    {
-                        panel8.setBorder(new EmptyBorder(0, 0, 0, 8));
-                        panel8.setOpaque(false);
-                        panel8.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                        panel8.setBackground(new Color(0x333333));
-                        panel8.setForeground(Color.white);
-                        panel8.setLayout(new GridLayout(1, 0, 16, 0));
-
-                        //---- textField_roomName ----
-                        textField_roomName.setPreferredSize(null);
-                        textField_roomName.setMaximumSize(null);
-                        textField_roomName.setBorder(new TitledBorder(null, "Room Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                            new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
-                        textField_roomName.setMargin(new Insets(8, 0, 0, 0));
-                        textField_roomName.setMinimumSize(null);
-                        textField_roomName.setBackground(new Color(0x333333));
-                        textField_roomName.setForeground(Color.white);
-                        textField_roomName.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                        textField_roomName.setSelectedTextColor(Color.white);
-                        textField_roomName.setSelectionColor(Color.black);
-                        textField_roomName.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-                        panel8.add(textField_roomName);
-
-                        //---- textField_roomID ----
-                        textField_roomID.setPreferredSize(null);
-                        textField_roomID.setMaximumSize(null);
-                        textField_roomID.setBorder(new TitledBorder(null, "Room ID", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                            new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
-                        textField_roomID.setMinimumSize(null);
-                        textField_roomID.setBackground(new Color(0x333333));
-                        textField_roomID.setForeground(Color.white);
-                        textField_roomID.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                        panel8.add(textField_roomID);
-                    }
-                    roomsPanel.add(panel8);
-
-                    //======== panel10 ========
-                    {
-                        panel10.setBorder(new TitledBorder(null, "Room Points", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                            new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
-                        panel10.setOpaque(false);
-                        panel10.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
-                        panel10.setLayout(new GridLayout(2, 0));
-
-                        //======== panel7 ========
-                        {
-                            panel7.setBorder(new EmptyBorder(8, 0, 8, 0));
-                            panel7.setOpaque(false);
-                            panel7.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
-                            panel7.setPreferredSize(null);
-                            panel7.setMinimumSize(null);
-                            panel7.setMaximumSize(null);
-                            panel7.setLayout(new BoxLayout(panel7, BoxLayout.X_AXIS));
-
-                            //---- spinner_points ----
-                            spinner_points.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Point", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                                new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
-                            spinner_points.setBackground(new Color(0x333333));
-                            spinner_points.setForeground(Color.white);
-                            spinner_points.setPreferredSize(null);
-                            spinner_points.setMinimumSize(null);
-                            spinner_points.setMaximumSize(null);
-                            spinner_points.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                            spinner_points.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                            spinner_points.setFocusable(false);
-                            panel7.add(spinner_points);
-                        }
-                        panel10.add(panel7);
-
-                        //======== panel9 ========
-                        {
-                            panel9.setBorder(new EmptyBorder(8, 0, 8, 0));
-                            panel9.setOpaque(false);
-                            panel9.setFont(new Font("JetBrains Mono", Font.PLAIN, 20));
-                            panel9.setPreferredSize(null);
-                            panel9.setMinimumSize(null);
-                            panel9.setMaximumSize(null);
-                            panel9.setLayout(new BoxLayout(panel9, BoxLayout.X_AXIS));
-
-                            //---- spinner_x ----
-                            spinner_x.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "X", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                                new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
-                            spinner_x.setBackground(new Color(0x333333));
-                            spinner_x.setForeground(Color.white);
-                            spinner_x.setPreferredSize(null);
-                            spinner_x.setMinimumSize(null);
-                            spinner_x.setMaximumSize(null);
-                            spinner_x.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                            spinner_x.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                            spinner_x.setFocusable(false);
-                            panel9.add(spinner_x);
-
-                            //---- spinner_y ----
-                            spinner_y.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Y", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-                                new Font("JetBrains Mono", Font.BOLD, 14), Color.lightGray));
-                            spinner_y.setBackground(new Color(0x333333));
-                            spinner_y.setForeground(Color.white);
-                            spinner_y.setModel(new SpinnerNumberModel(0, null, null, 1));
-                            spinner_y.setMinimumSize(null);
-                            spinner_y.setPreferredSize(null);
-                            spinner_y.setMaximumSize(null);
-                            spinner_y.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-                            spinner_y.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                            spinner_y.setFocusable(false);
-                            panel9.add(spinner_y);
-                        }
-                        panel10.add(panel9);
-                    }
-                    roomsPanel.add(panel10);
-                }
-                buttonPanel.add(roomsPanel);
+                buttonPanel.add(tabbedPane);
             }
             dialogPane.add(buttonPanel);
 
@@ -783,13 +1095,13 @@ public class MapMakerGUI extends JFrame {
                 panel1.setMaximumSize(null);
                 panel1.setMinimumSize(null);
                 panel1.setPreferredSize(null);
-                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
-                . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder
-                . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg", java .
-                awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) )
-                ; panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-                ) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
-                ;
+                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
+                javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax
+                . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
+                . awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,java . awt
+                . Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .
+                PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .
+                equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
                 panel1.setLayout(new BorderLayout());
 
                 //======== scrollPane2 ========
@@ -859,10 +1171,10 @@ public class MapMakerGUI extends JFrame {
     private JTextField textField_floorName;
     private JPanel panel4;
     private JComboBox comboBox_floorImage;
-    private JSeparator separator1;
+    private JTabbedPane tabbedPane;
+    private JPanel roomsPanel;
     private JPanel roomsLabelPanel;
     private JLabel roomLabel;
-    private JPanel roomsPanel;
     private JPanel panel2;
     private JButton button_addRoom;
     private JButton button_removeRoom;
@@ -874,10 +1186,29 @@ public class MapMakerGUI extends JFrame {
     private JSpinner textField_roomID;
     private JPanel panel10;
     private JPanel panel7;
+    private JButton button_forceRightAngle;
     private RoomSpinner spinner_points;
     private JPanel panel9;
     private RoomSpinner spinner_x;
     private RoomSpinner spinner_y;
+    private JPanel poiPanel;
+    private JPanel roomsLabelPanel2;
+    private JLabel poiLabel;
+    private JPanel panel12;
+    private JButton button_addpoi;
+    private JButton button_removepoi;
+    private JPanel panel18;
+    private JScrollPane scrollPane3;
+    private JList<String> jList_poiList;
+    private JPanel panel19;
+    private JTextField textField_poiName;
+    private JSpinner textField_poiID;
+    private JPanel panel20;
+    private JPanel panel_poitype;
+    private FloorTypeComboBox<String> comboBox_poitType;
+    private JPanel panel22;
+    private RoomSpinner spinner_poix;
+    private RoomSpinner spinner_poiy;
     private MapImageViewPanel mapViewPanel;
     private JPopupMenu popupMenu_loadMap;
     private JPanel panel1;

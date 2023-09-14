@@ -1,11 +1,15 @@
 package models;
 
+import main.java.models.MapFileWriter;
+import main.java.models.WorldMapWrapper;
+
 import java.util.ArrayList;
 import java.util.Map;
 
 public class MapListModel {
 
     private RoomModel tempRoomModel = new RoomModel();
+    private PoiModel tempPoiModel;
 
     private int currentMapID = 0;
     public ArrayList<MapModel> mapModels;
@@ -49,5 +53,13 @@ public class MapListModel {
 
     public void setTempRoomModel(RoomModel roomModel) {
         this.tempRoomModel = roomModel;
+    }
+
+    public void setTempPoiModel(PoiModel poiModel) {
+        this.tempPoiModel = poiModel;
+    }
+
+    public PoiModel getTempPoiModel() {
+        return tempPoiModel;
     }
 }
