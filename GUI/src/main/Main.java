@@ -34,7 +34,7 @@ public class Main {
     private static JList<String> popupMenu_loadMap_mapList;
     private static JButton popupMenu_loadMap_button_confirm, popupMenu_loadMap_button_cancel;
 
-    private static JTextField textField_mapName, textField_floorName;
+    private static JTextField textField_mapName, textField_mapNameShort, textField_floorName;
 
     private static JTabbedPane tabbedPane;
 
@@ -85,6 +85,7 @@ public class Main {
         menu_file = window.getMenu_file();
 
         textField_mapName = window.getTextField_mapName();
+        textField_mapNameShort = window.getTextField_mapNameShort();
         textField_floorName = window.getTextField_floorName();
 
         menuItem_open = window.getMenuItem_open();
@@ -168,6 +169,7 @@ public class Main {
 
         textField_roomName.setCaretColor(Color.WHITE);
         textField_mapName.setText(mapListModel.getCurrentMap().mapName);
+        textField_mapNameShort.setText(mapListModel.getCurrentMap().mapNameShort);
         textField_floorName.setText(mapListModel.getCurrentMap().getCurrentFloor().getFloorName());
         spinner_points.setModel(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
         spinner_x.setModel(new SpinnerNumberModel(0, -10, 10, .001));
@@ -242,6 +244,7 @@ public class Main {
 
             panel_mapView.setImage(imageData.getValue(mapListModel.getCurrentMap().getCurrentFloor().getFloorImage()));
             textField_mapName.setText(mapListModel.getCurrentMap().mapName);
+            textField_mapNameShort.setText(mapListModel.getCurrentMap().mapNameShort);
             textField_floorName.setText(mapListModel.getCurrentMap().getCurrentFloor().getFloorName());
             jComboBox_floorTypes.setSelectedIndex(mapModel.getCurrentLayerOrdinal());
             System.out.println("Selected type " + jComboBox_floorTypes.getSelectedIndex());
@@ -304,6 +307,15 @@ public class Main {
             @Override
             public void focusLost(FocusEvent e) {
                 mapListModel.getCurrentMap().mapName = textField_mapName.getText();
+            }
+        });
+
+        textField_mapNameShort.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) { }
+            @Override
+            public void focusLost(FocusEvent e) {
+                mapListModel.getCurrentMap().mapNameShort = textField_mapNameShort.getText();
             }
         });
 
@@ -507,6 +519,7 @@ public class Main {
 
             panel_mapView.setImage(imageData.getValue(currentMap.getCurrentFloor().getFloorImage()));
             textField_mapName.setText(currentMap.mapName);
+            textField_mapNameShort.setText(currentMap.mapNameShort);
             textField_floorName.setText(currentMap.getCurrentFloor().getFloorName());
 
             updateRoomsListView();
@@ -520,6 +533,7 @@ public class Main {
 
             panel_mapView.setImage(imageData.getValue(currentMap.getCurrentFloor().getFloorImage()));
             textField_mapName.setText(currentMap.mapName);
+            textField_mapNameShort.setText(currentMap.mapNameShort);
             textField_floorName.setText(currentMap.getCurrentFloor().getFloorName());
 
             updateRoomsListView();
@@ -623,6 +637,7 @@ public class Main {
     public static void resetDataOfRoomViews() {
         MapModel mapModel = mapListModel.getCurrentMap();
         textField_mapName.setText(mapModel.mapName);
+        textField_mapNameShort.setText(mapModel.mapNameShort);
         fillDataOfRoomViews(mapListModel.getTempRoomModel());
     }
 

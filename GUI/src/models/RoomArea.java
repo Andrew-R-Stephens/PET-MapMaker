@@ -78,27 +78,42 @@ public class RoomArea {
 
     public void forceRightAngle() {
 
-        if(points.size() != 4) { return; }
+        if(points.size() == 4) {
 
-        Point2D.Float p1 = points.get(0);
-        Point2D.Float p2 = points.get(1);
-        Point2D.Float p3 = points.get(2);
-        Point2D.Float p4 = points.get(3);
+            Point2D.Float p1 = points.get(0);
+            Point2D.Float p2 = points.get(1);
+            Point2D.Float p3 = points.get(2);
+            Point2D.Float p4 = points.get(3);
 
-        p2.x = Math.max(p1.x, p3.x);
-        p4.x = Math.min(p1.x, p3.x);
-        if(p1.x > p3.x) {
-            float temp = p2.x;
-            p2.x = p4.x;
-            p4.x = temp;
+            p2.x = Math.max(p1.x, p3.x);
+            p4.x = Math.min(p1.x, p3.x);
+            if (p1.x > p3.x) {
+                float temp = p2.x;
+                p2.x = p4.x;
+                p4.x = temp;
+            }
+
+            p4.y = Math.max(p1.y, p3.y);
+            p2.y = Math.min(p1.y, p3.y);
+            if (p1.y > p3.y) {
+                float temp = p2.y;
+                p2.y = p4.y;
+                p4.y = temp;
+            }
+
+            return;
         }
 
-        p4.y = Math.max(p1.y, p3.y);
-        p2.y = Math.min(p1.y, p3.y);
-        if(p1.y > p3.y) {
-            float temp = p2.y;
-            p2.y = p4.y;
-            p4.y = temp;
+        if(points.size() > 4) {
+
+            for(int i = 1; i < points.size(); i+=2) {
+                Point2D.Float p1 = points.get((i - 1) % points.size());
+                Point2D.Float p2 = points.get((i) % points.size());
+                Point2D.Float p3 = points.get((i + 1) % points.size());
+
+                p2.x = p1.x;
+                p2.y = p3.y;
+            }
         }
     }
 

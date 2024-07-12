@@ -11,7 +11,7 @@ import java.util.Map;
 public class MapModel {
 
     public int mapId;
-    public String mapName;
+    public String mapName, mapNameShort;
     public Dimension mapDimensions;
 
     public FloorLayer currentLayer = FloorLayer.values()[0];
@@ -21,6 +21,7 @@ public class MapModel {
     public MapModel() {
         mapId = 0;
         mapName = "undefined";
+        mapNameShort = "undefined";
         mapDimensions = new Dimension(0, 0);
         for(FloorLayer layer: FloorLayer.values())
             mapFloors.add(new FloorModel(layer));
@@ -29,11 +30,12 @@ public class MapModel {
     public MapModel(WorldMapWrapper.WorldMap worldMap) {
         mapId = worldMap.map_id;
         mapName = worldMap.map_name;
+        mapNameShort = worldMap.map_name_short;
         mapDimensions = new Dimension(worldMap.map_dimensions.w, worldMap.map_dimensions.h);
         for(WorldMapWrapper.WorldMap.Floor f: worldMap.map_floors) {
             mapFloors.add(new FloorModel(f));
         }
-        currentLayer = mapFloors.size() != 0 ? mapFloors.get(0).getFloorLayer() : null;
+        currentLayer = !mapFloors.isEmpty() ? mapFloors.get(0).getFloorLayer() : null;
     }
 
     public FloorModel getCurrentFloor() {
@@ -166,6 +168,7 @@ public class MapModel {
 
         worldMap.map_id = mapId;
         worldMap.map_name = mapName;
+        worldMap.map_name_short = mapNameShort;
 
         WorldMapWrapper.WorldMap.WorldDimensions worldDimensions = new WorldMapWrapper.WorldMap.WorldDimensions();
         worldDimensions.w = (int) mapDimensions.getWidth();

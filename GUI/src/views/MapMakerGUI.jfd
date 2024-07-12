@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "8.1.1.0.298" Java: "17.0.6" encoding: "UTF-8"
+JFDML JFormDesigner: "8.2.3.0.386" Java: "17.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -35,26 +35,45 @@ new FormModel {
 					"maximumSize": new java.awt.Dimension( 356, 20000 )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 						"hgap": 16
+						"rows": 2
+						"vgap": 4
 					} ) {
 						name: "panel16"
-						"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 0, 0, 0, 8 )
+						"border": new javax.swing.border.TitledBorder( new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Map Name", 4, 0, new java.awt.Font( "JetBrains Mono", 1, 14 ), null )
 						"opaque": false
-						"font": &Font1 new java.awt.Font( "JetBrains Mono", 0, 12 )
+						"font": new java.awt.Font( "JetBrains Mono", 1, 14 )
 						"background": &Color0 new java.awt.Color( 51, 51, 51, 255 )
 						"foreground": sfield java.awt.Color white
 						add( new FormComponent( "javax.swing.JTextField" ) {
 							name: "textField_mapName"
 							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-							"border": new javax.swing.border.TitledBorder( null, "Map Name", 4, 0, &Font2 new java.awt.Font( "JetBrains Mono", 1, 12 ), sfield java.awt.Color lightGray )
+							"border": new javax.swing.border.TitledBorder( null, "Official Name", 4, 0, &Font1 new java.awt.Font( "JetBrains Mono", 1, 12 ), sfield java.awt.Color lightGray )
 							"margin": &Insets0 new java.awt.Insets( 8, 0, 0, 0 )
 							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"background": &Color1 new java.awt.Color( 51, 51, 51, 255 )
 							"foreground": sfield java.awt.Color white
-							"font": #Font1
+							"font": &Font2 new java.awt.Font( "JetBrains Mono", 0, 12 )
 							"selectedTextColor": sfield java.awt.Color white
 							"selectionColor": &Color2 new java.awt.Color( 0, 0, 0, 255 )
 							"cursor": &Cursor0 new java.awt.Cursor( 2 )
+							auxiliary() {
+								"JavaCodeGenerator.variableGetter": true
+							}
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField_mapNameShort"
+							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"border": new javax.swing.border.TitledBorder( null, "Shortened", 4, 0, #Font1, sfield java.awt.Color lightGray )
+							"margin": #Insets0
+							"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+							"background": #Color1
+							"foreground": sfield java.awt.Color white
+							"font": #Font2
+							"selectedTextColor": sfield java.awt.Color white
+							"selectionColor": #Color2
+							"cursor": #Cursor0
 							auxiliary() {
 								"JavaCodeGenerator.variableGetter": true
 							}
@@ -94,7 +113,7 @@ new FormModel {
 						"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 						"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 						"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-						"border": &EmptyBorder1 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+						"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 						"background": new java.awt.Color( 102, 102, 102, 255 )
 						"font": #Font0
 						add( new FormComponent( "javax.swing.JButton" ) {
@@ -155,7 +174,7 @@ new FormModel {
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-								"border": &EmptyBorder2 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+								"border": &EmptyBorder1 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 								"background": &Color8 new java.awt.Color( 51, 51, 51, 255 )
 								"foreground": sfield java.awt.Color white
 								"font": #Font0
@@ -163,7 +182,7 @@ new FormModel {
 									name: "comboBox_floorTypes"
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-									"border": new javax.swing.border.TitledBorder( &EmptyBorder3 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Level", 4, 0, &Font5 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+									"border": new javax.swing.border.TitledBorder( &EmptyBorder2 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Level", 4, 0, &Font5 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
 									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"background": &Color9 new java.awt.Color( 51, 51, 51, 255 )
 									"foreground": sfield java.awt.Color white
@@ -184,7 +203,7 @@ new FormModel {
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-								"border": #EmptyBorder2
+								"border": #EmptyBorder1
 								"background": #Color8
 								"foreground": sfield java.awt.Color white
 								"font": #Font0
@@ -244,21 +263,21 @@ new FormModel {
 							"hgap": 16
 						} ) {
 							name: "panel17"
-							"border": #EmptyBorder0
+							"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 8 )
 							"opaque": false
-							"font": #Font1
+							"font": #Font2
 							"background": #Color0
 							"foreground": sfield java.awt.Color white
 							add( new FormComponent( "javax.swing.JTextField" ) {
 								name: "textField_floorName"
 								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-								"border": new javax.swing.border.TitledBorder( null, "Floor Name", 4, 0, #Font2, sfield java.awt.Color lightGray )
+								"border": new javax.swing.border.TitledBorder( null, "Floor Name", 4, 0, #Font1, sfield java.awt.Color lightGray )
 								"margin": #Insets0
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"background": #Color1
 								"foreground": sfield java.awt.Color white
-								"font": #Font1
+								"font": #Font2
 								"selectedTextColor": sfield java.awt.Color white
 								"selectionColor": #Color2
 								"cursor": #Cursor0
@@ -312,14 +331,14 @@ new FormModel {
 							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"font": #Font0
-							"border": &EmptyBorder4 new javax.swing.border.EmptyBorder( 8, 8, 8, 8 )
+							"border": &EmptyBorder3 new javax.swing.border.EmptyBorder( 8, 8, 8, 8 )
 							"foreground": sfield java.awt.Color white
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
 								"axis": 2
 							} ) {
 								name: "roomsLabelPanel"
 								"background": &Color11 new java.awt.Color( 51, 51, 51, 255 )
-								"border": &EmptyBorder5 new javax.swing.border.EmptyBorder( 16, 5, 8, 5 )
+								"border": &EmptyBorder4 new javax.swing.border.EmptyBorder( 16, 5, 8, 5 )
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -345,7 +364,7 @@ new FormModel {
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-								"border": #EmptyBorder1
+								"border": #EmptyBorder0
 								"background": #Color8
 								"foreground": sfield java.awt.Color white
 								"font": #Font0
@@ -386,7 +405,7 @@ new FormModel {
 								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-								"border": &EmptyBorder6 new javax.swing.border.EmptyBorder( 16, 0, 16, 0 )
+								"border": &EmptyBorder5 new javax.swing.border.EmptyBorder( 16, 0, 16, 0 )
 								"font": #Font0
 								add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 									name: "scrollPane1"
@@ -397,7 +416,7 @@ new FormModel {
 									"background": &Color12 new java.awt.Color( 238, 238, 238, 0 )
 									"viewportBorder": new javax.swing.border.TitledBorder( null, "Available Rooms", 4, 0, &Font7 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
 									"font": #Font0
-									"border": &EmptyBorder7 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+									"border": &EmptyBorder6 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 									add( new FormComponent( "javax.swing.JList" ) {
 										name: "scrollView_roomList"
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -406,7 +425,7 @@ new FormModel {
 										"background": sfield java.awt.Color lightGray
 										"selectionMode": 0
 										"visibleRowCount": 10
-										"border": &EmptyBorder8 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+										"border": &EmptyBorder7 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 										"font": &Font8 new java.awt.Font( "JetBrains Mono", 0, 14 )
 										"selectionBackground": sfield java.awt.Color darkGray
 										"selectionForeground": &Color13 new java.awt.Color( 255, 255, 255, 255 )
@@ -428,19 +447,19 @@ new FormModel {
 								name: "panel8"
 								"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 								"opaque": false
-								"font": #Font1
+								"font": #Font2
 								"background": #Color0
 								"foreground": sfield java.awt.Color white
 								add( new FormComponent( "javax.swing.JTextField" ) {
 									name: "textField_roomName"
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-									"border": new javax.swing.border.TitledBorder( null, "Room Name", 4, 0, #Font2, sfield java.awt.Color lightGray )
+									"border": new javax.swing.border.TitledBorder( null, "Room Name", 4, 0, #Font1, sfield java.awt.Color lightGray )
 									"margin": #Insets0
 									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"background": #Color1
 									"foreground": sfield java.awt.Color white
-									"font": #Font1
+									"font": #Font2
 									"selectedTextColor": sfield java.awt.Color white
 									"selectionColor": #Color2
 									"cursor": #Cursor0
@@ -452,11 +471,11 @@ new FormModel {
 									name: "textField_roomID"
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-									"border": new javax.swing.border.TitledBorder( null, "Room ID", 4, 0, #Font2, sfield java.awt.Color lightGray )
+									"border": new javax.swing.border.TitledBorder( null, "Room ID", 4, 0, #Font1, sfield java.awt.Color lightGray )
 									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"background": #Color1
 									"foreground": sfield java.awt.Color white
-									"font": #Font1
+									"font": #Font2
 									auxiliary() {
 										"JavaCodeGenerator.variableGetter": true
 									}
@@ -471,7 +490,7 @@ new FormModel {
 								"font": #Font3
 								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
 									name: "panel7"
-									"border": &EmptyBorder9 new javax.swing.border.EmptyBorder( 8, 0, 8, 0 )
+									"border": &EmptyBorder8 new javax.swing.border.EmptyBorder( 8, 0, 8, 0 )
 									"opaque": false
 									"font": #Font3
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -495,13 +514,13 @@ new FormModel {
 									} )
 									add( new FormComponent( "views.RoomSpinner" ) {
 										name: "spinner_points"
-										"border": new javax.swing.border.TitledBorder( &EmptyBorder10 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Point", 4, 0, &Font9 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
+										"border": new javax.swing.border.TitledBorder( &EmptyBorder9 new javax.swing.border.EmptyBorder( 0, 0, 0, 0 ), "Point", 4, 0, &Font9 new java.awt.Font( "JetBrains Mono", 1, 14 ), sfield java.awt.Color lightGray )
 										"background": &Color14 new java.awt.Color( 51, 51, 51, 255 )
 										"foreground": sfield java.awt.Color white
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"font": #Font1
+										"font": #Font2
 										"cursor": #Cursor1
 										"focusable": false
 										auxiliary() {
@@ -511,7 +530,7 @@ new FormModel {
 								} )
 								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
 									name: "panel9"
-									"border": #EmptyBorder9
+									"border": #EmptyBorder8
 									"opaque": false
 									"font": #Font3
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -519,13 +538,13 @@ new FormModel {
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									add( new FormComponent( "views.RoomSpinner" ) {
 										name: "spinner_x"
-										"border": &TitledBorder0 new javax.swing.border.TitledBorder( #EmptyBorder10, "X", 4, 0, #Font9, sfield java.awt.Color lightGray )
+										"border": &TitledBorder0 new javax.swing.border.TitledBorder( #EmptyBorder9, "X", 4, 0, #Font9, sfield java.awt.Color lightGray )
 										"background": #Color14
 										"foreground": sfield java.awt.Color white
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"font": #Font1
+										"font": #Font2
 										"cursor": #Cursor1
 										"focusable": false
 										auxiliary() {
@@ -534,14 +553,14 @@ new FormModel {
 									} )
 									add( new FormComponent( "views.RoomSpinner" ) {
 										name: "spinner_y"
-										"border": &TitledBorder1 new javax.swing.border.TitledBorder( #EmptyBorder10, "Y", 4, 0, #Font9, sfield java.awt.Color lightGray )
+										"border": &TitledBorder1 new javax.swing.border.TitledBorder( #EmptyBorder9, "Y", 4, 0, #Font9, sfield java.awt.Color lightGray )
 										"background": #Color14
 										"foreground": sfield java.awt.Color white
 										"model": &SpinnerNumberModel0 new javax.swing.SpinnerNumberModel
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"font": #Font1
+										"font": #Font2
 										"cursor": #Cursor1
 										"focusable": false
 										auxiliary() {
@@ -564,14 +583,14 @@ new FormModel {
 							"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 							"font": #Font0
-							"border": #EmptyBorder4
+							"border": #EmptyBorder3
 							"foreground": new java.awt.Color( 51, 51, 51, 255 )
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
 								"axis": 2
 							} ) {
 								name: "roomsLabelPanel2"
 								"background": #Color11
-								"border": #EmptyBorder5
+								"border": #EmptyBorder4
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -597,7 +616,7 @@ new FormModel {
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-								"border": #EmptyBorder1
+								"border": #EmptyBorder0
 								"background": #Color8
 								"foreground": sfield java.awt.Color white
 								"font": #Font0
@@ -638,7 +657,7 @@ new FormModel {
 								"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 								"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-								"border": #EmptyBorder6
+								"border": #EmptyBorder5
 								"font": #Font0
 								add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 									name: "scrollPane3"
@@ -649,7 +668,7 @@ new FormModel {
 									"background": #Color12
 									"viewportBorder": new javax.swing.border.TitledBorder( null, "Available POIs", 4, 0, #Font7, sfield java.awt.Color lightGray )
 									"font": #Font0
-									"border": #EmptyBorder7
+									"border": #EmptyBorder6
 									add( new FormComponent( "javax.swing.JList" ) {
 										name: "jList_poiList"
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -658,7 +677,7 @@ new FormModel {
 										"background": sfield java.awt.Color lightGray
 										"selectionMode": 0
 										"visibleRowCount": 10
-										"border": #EmptyBorder8
+										"border": #EmptyBorder7
 										"font": #Font8
 										"selectionBackground": sfield java.awt.Color darkGray
 										"selectionForeground": #Color13
@@ -680,19 +699,19 @@ new FormModel {
 								name: "panel19"
 								"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
 								"opaque": false
-								"font": #Font1
+								"font": #Font2
 								"background": #Color0
 								"foreground": sfield java.awt.Color white
 								add( new FormComponent( "javax.swing.JTextField" ) {
 									name: "textField_poiName"
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-									"border": new javax.swing.border.TitledBorder( null, "POI Name", 4, 0, #Font2, sfield java.awt.Color lightGray )
+									"border": new javax.swing.border.TitledBorder( null, "POI Name", 4, 0, #Font1, sfield java.awt.Color lightGray )
 									"margin": #Insets0
 									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"background": #Color1
 									"foreground": sfield java.awt.Color white
-									"font": #Font1
+									"font": #Font2
 									"selectedTextColor": sfield java.awt.Color white
 									"selectionColor": #Color2
 									"cursor": #Cursor0
@@ -704,11 +723,11 @@ new FormModel {
 									name: "textField_poiID"
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-									"border": new javax.swing.border.TitledBorder( null, "POI ID", 4, 0, #Font2, sfield java.awt.Color lightGray )
+									"border": new javax.swing.border.TitledBorder( null, "POI ID", 4, 0, #Font1, sfield java.awt.Color lightGray )
 									"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 									"background": #Color1
 									"foreground": sfield java.awt.Color white
-									"font": #Font1
+									"font": #Font2
 									auxiliary() {
 										"JavaCodeGenerator.variableGetter": true
 									}
@@ -723,7 +742,7 @@ new FormModel {
 								"font": #Font3
 								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
 									name: "panel_poitype"
-									"border": #EmptyBorder9
+									"border": #EmptyBorder8
 									"opaque": false
 									"font": #Font3
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -733,7 +752,7 @@ new FormModel {
 										name: "comboBox_poitType"
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"border": new javax.swing.border.TitledBorder( #EmptyBorder3, "POI Type", 4, 0, #Font5, sfield java.awt.Color lightGray )
+										"border": new javax.swing.border.TitledBorder( #EmptyBorder2, "POI Type", 4, 0, #Font5, sfield java.awt.Color lightGray )
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"background": #Color9
 										"foreground": sfield java.awt.Color white
@@ -748,7 +767,7 @@ new FormModel {
 								} )
 								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
 									name: "panel22"
-									"border": #EmptyBorder9
+									"border": #EmptyBorder8
 									"opaque": false
 									"font": #Font3
 									"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
@@ -762,7 +781,7 @@ new FormModel {
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"font": #Font1
+										"font": #Font2
 										"cursor": #Cursor1
 										"focusable": false
 										auxiliary() {
@@ -778,7 +797,7 @@ new FormModel {
 										"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 										"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
-										"font": #Font1
+										"font": #Font2
 										"cursor": #Cursor1
 										"focusable": false
 										auxiliary() {
@@ -797,7 +816,7 @@ new FormModel {
 				add( new FormComponent( "views.MapImageViewPanel" ) {
 					name: "mapViewPanel"
 					"background": new java.awt.Color( 204, 204, 204, 255 )
-					"font": #Font1
+					"font": #Font2
 					"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 					"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 					"preferredSize": new java.awt.Dimension( 1000, 592 )

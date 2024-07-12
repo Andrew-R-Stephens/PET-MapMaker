@@ -191,6 +191,10 @@ public class MapMakerGUI extends JFrame {
         return tabbedPane;
     }
 
+    public JTextField getTextField_mapNameShort() {
+        return textField_mapNameShort;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - Andrew
@@ -204,6 +208,7 @@ public class MapMakerGUI extends JFrame {
         buttonPanel = new JPanel();
         panel16 = new JPanel();
         textField_mapName = new JTextField();
+        textField_mapNameShort = new JTextField();
         floorLabelPanel = new JPanel();
         floorLabel = new JLabel();
         panel3 = new JPanel();
@@ -320,12 +325,12 @@ public class MapMakerGUI extends JFrame {
             dialogPane.setBackground(new Color(0x333333));
             dialogPane.setPreferredSize(null);
             dialogPane.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
-            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
-            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
-            .BOLD ,12 ), java. awt. Color. red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
-            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            dialogPane.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
+            EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing
+            .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
+            java.awt.Color.red),dialogPane. getBorder()));dialogPane. addPropertyChangeListener(new java.beans.PropertyChangeListener()
+            {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))
+            throw new RuntimeException();}});
             dialogPane.setLayout(new BoxLayout(dialogPane, BoxLayout.X_AXIS));
 
             //======== buttonPanel ========
@@ -339,17 +344,18 @@ public class MapMakerGUI extends JFrame {
 
                 //======== panel16 ========
                 {
-                    panel16.setBorder(new EmptyBorder(0, 0, 0, 8));
+                    panel16.setBorder(new TitledBorder(BorderFactory.createEmptyBorder(), "Map Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                        new Font("JetBrains Mono", Font.BOLD, 14)));
                     panel16.setOpaque(false);
-                    panel16.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                    panel16.setFont(new Font("JetBrains Mono", Font.BOLD, 14));
                     panel16.setBackground(new Color(0x333333));
                     panel16.setForeground(Color.white);
-                    panel16.setLayout(new GridLayout(1, 0, 16, 0));
+                    panel16.setLayout(new GridLayout(2, 0, 16, 4));
 
                     //---- textField_mapName ----
                     textField_mapName.setPreferredSize(null);
                     textField_mapName.setMaximumSize(null);
-                    textField_mapName.setBorder(new TitledBorder(null, "Map Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                    textField_mapName.setBorder(new TitledBorder(null, "Official Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
                         new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
                     textField_mapName.setMargin(new Insets(8, 0, 0, 0));
                     textField_mapName.setMinimumSize(null);
@@ -360,6 +366,21 @@ public class MapMakerGUI extends JFrame {
                     textField_mapName.setSelectionColor(Color.black);
                     textField_mapName.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
                     panel16.add(textField_mapName);
+
+                    //---- textField_mapNameShort ----
+                    textField_mapNameShort.setPreferredSize(null);
+                    textField_mapNameShort.setMaximumSize(null);
+                    textField_mapNameShort.setBorder(new TitledBorder(null, "Shortened", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                        new Font("JetBrains Mono", Font.BOLD, 12), Color.lightGray));
+                    textField_mapNameShort.setMargin(new Insets(8, 0, 0, 0));
+                    textField_mapNameShort.setMinimumSize(null);
+                    textField_mapNameShort.setBackground(new Color(0x333333));
+                    textField_mapNameShort.setForeground(Color.white);
+                    textField_mapNameShort.setFont(new Font("JetBrains Mono", Font.PLAIN, 12));
+                    textField_mapNameShort.setSelectedTextColor(Color.white);
+                    textField_mapNameShort.setSelectionColor(Color.black);
+                    textField_mapNameShort.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                    panel16.add(textField_mapNameShort);
                 }
                 buttonPanel.add(panel16);
 
@@ -1095,13 +1116,11 @@ public class MapMakerGUI extends JFrame {
                 panel1.setMaximumSize(null);
                 panel1.setMinimumSize(null);
                 panel1.setPreferredSize(null);
-                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
-                javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax
-                . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
-                . awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,java . awt
-                . Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .
-                PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .
-                equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
+                , 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+                , new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
+                panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+                ) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
                 panel1.setLayout(new BorderLayout());
 
                 //======== scrollPane2 ========
@@ -1154,6 +1173,7 @@ public class MapMakerGUI extends JFrame {
     private JPanel buttonPanel;
     private JPanel panel16;
     private JTextField textField_mapName;
+    private JTextField textField_mapNameShort;
     private JPanel floorLabelPanel;
     private JLabel floorLabel;
     private JPanel panel3;

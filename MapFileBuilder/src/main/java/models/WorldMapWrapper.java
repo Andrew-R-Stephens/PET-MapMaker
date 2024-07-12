@@ -13,6 +13,7 @@ public class WorldMapWrapper {
 
         public int map_id;
         public String map_name = "";
+        public String map_name_short = "";
         public ArrayList<Floor> map_floors = new ArrayList<>();
         public WorldDimensions map_dimensions = new WorldDimensions();
 
@@ -107,7 +108,7 @@ public class WorldMapWrapper {
             for (Floor f : map_floors) {
                 floorsStr.append(f);
             }
-            return map_id + ": " + map_name + map_dimensions + ", Floor Count: " + map_floors.size() + "\n" + floorsStr;
+            return map_id + ": " + map_name + ", " + map_name_short + ", " + map_dimensions + ", Floor Count: " + map_floors.size() + "\n" + floorsStr;
         }
     }
 }
