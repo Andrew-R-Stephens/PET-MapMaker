@@ -16,7 +16,6 @@ public class RoomModel {
 
     /**
      * Deep copy data from another RoomData
-     * @param tempRoomData
      */
     public RoomModel(RoomModel tempRoomData) {
         if(tempRoomData == null) { return; }

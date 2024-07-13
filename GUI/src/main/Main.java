@@ -56,7 +56,6 @@ public class Main {
     private static RoomSpinner spinner_points, spinner_x, spinner_y;
 
     public static void main(String[] args) {
-
         initData();
 
         initWindow();
@@ -64,7 +63,6 @@ public class Main {
         initListeners();
 
         window.build();
-
     }
 
     public static void initData() {

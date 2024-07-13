@@ -16,7 +16,7 @@ public class MapModel {
 
     public FloorLayer currentLayer = FloorLayer.values()[0];
 
-    public ArrayList<FloorModel> mapFloors = new ArrayList<>();//new ArrayList<>(3);
+    public ArrayList<FloorModel> mapFloors = new ArrayList<>();
 
     public MapModel() {
         mapId = 0;

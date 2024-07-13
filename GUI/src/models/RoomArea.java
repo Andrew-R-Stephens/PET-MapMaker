@@ -47,7 +47,7 @@ public class RoomArea {
     }
 
     public Point2D.Float getLastPoint() {
-        if(points.size() == 0) {
+        if(points.isEmpty()) {
             return null;
         }
 

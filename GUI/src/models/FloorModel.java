@@ -61,7 +61,7 @@ public class FloorModel {
     }
 
     public RoomModel getLastRoom() {
-        if(floorRooms.size() == 0) {
+        if(floorRooms.isEmpty()) {
             return null;
         }
         return floorRooms.get(floorRooms.size()-1);
